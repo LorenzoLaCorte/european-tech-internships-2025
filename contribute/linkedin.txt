@@ -27,6 +27,8 @@ https://www.linkedin.com/jobs/view/3706571351/
 https://www.linkedin.com/jobs/view/3695417555/
 https://www.linkedin.com/jobs/view/3703712047/
 https://www.linkedin.com/jobs/view/3719165795/
+<<<<<<< HEAD
+=======
 https://www.linkedin.com/jobs/view/3714422696/
 https://www.linkedin.com/jobs/view/3369516167/
 https://www.linkedin.com/jobs/view/3638015309/
@@ -48,3 +50,4 @@ https://www.linkedin.com/jobs/view/3730998943/
 https://www.linkedin.com/jobs/view/3706100073/
 https://www.linkedin.com/jobs/view/3700405722/
 https://www.linkedin.com/jobs/view/3724350804/
+>>>>>>> origin/main
