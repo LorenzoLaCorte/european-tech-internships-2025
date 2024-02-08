@@ -1,3 +1,5 @@
+### Note: obsolete positions will be removed next week
+
 |company|title|location|link|
 |---|---|---|---|
 |adobe|2024 intern - software development engineering|edinburgh, scotland, united kingdom|https://www.linkedin.com/jobs/view/3776125579|
