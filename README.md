@@ -1,5 +1,3 @@
-### Note: obsolete positions will be removed next week
-
 |company|title|location|link|
 |---|---|---|---|
 |abb|full stack software engineer – internship|katowice, śląskie, poland|https://www.linkedin.com/jobs/view/3820982829|
