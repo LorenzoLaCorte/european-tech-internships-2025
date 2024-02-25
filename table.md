@@ -1,10 +1,3 @@
-# European Tech Internships 2024
-#### A collection of tech internships around europe.
-
-## Scraper
-[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)
-
-## Results
 |company|title|location|link|
 |---|---|---|---|
 |abb|full stack software engineer – internship|katowice, śląskie, poland|https://www.linkedin.com/jobs/view/3820982829|
