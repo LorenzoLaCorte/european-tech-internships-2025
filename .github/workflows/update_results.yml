@@ -13,14 +13,22 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Update table.md
+            - name: Retrieve Internships table.md
               run: |
-                curl -o table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/table.md
+                curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/table.md
       
-            - name: Check table.md content
+            - name: Retrieve New Grads table.md
               run: |
-                  if grep -q "404: Not Found" table.md; then
-                    echo "Error: Invalid content in table.md"
+                curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/new_grad/output/table.md
+
+            - name: Check internships_table and newgrads_table content
+              run: |
+                  if grep -q "404: Not Found" internships_table.md; then
+                    echo "Error: Invalid content in internships_table.md"
+                    exit 1
+                  fi
+                  if grep -q "404: Not Found" newgrads_table.md; then
+                    echo "Error: Invalid content in newgrads_table.md"
                     exit 1
                   fi
 
@@ -29,11 +37,16 @@ jobs:
                 echo "# European Tech Internships 2024" > README.md
                 echo "#### A collection of tech internships around europe." >> README.md
                 echo "" >> README.md
+                echo "## Index" >> README.md
+                echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)" >> README.md
                 echo "## Scraper" >> README.md
                 echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
                 echo "" >> README.md
-                echo "## Results" >> README.md
-                cat table.md >> README.md
+                echo "## Internship Positions" >> README.md
+                cat internships_table.md >> README.md
+                echo "" >> README.md
+                echo "## New Grad Positions" >> README.md
+                cat newgrads_table.md >> README.md
 
             - name: Commit and push if it changed
               run: |
