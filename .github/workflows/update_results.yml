@@ -1,0 +1,52 @@
+name: Update Results
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at midnight
+
+jobs:
+    update-results:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Update table.md
+              run: |
+                curl -o table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/table.md
+      
+            - name: Check table.md content
+              run: |
+                  if grep -q "404: Not Found" table.md; then
+                    echo "Error: Invalid content in table.md"
+                    exit 1
+                  fi
+
+            - name: Update Results
+              run: |
+                echo "# European Tech Internships 2024" > README.md
+                echo "#### A collection of tech internships around europe." >> README.md
+                echo "" >> README.md
+                echo "## Scraper" >> README.md
+                echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
+                echo "" >> README.md
+                echo "## Results" >> README.md
+                cat table.md >> README.md
+
+            - name: Commit and push if it changed
+              run: |
+                git diff
+                git config --global user.email "actions@github.com"
+                git config --global user.name "GitHub Action"
+                git commit -am "Update README.md" || exit 0
+              
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                commit-message: "Update Results"
+                title: "Update Results"
+                body: ""
+                branch: "update-results"
