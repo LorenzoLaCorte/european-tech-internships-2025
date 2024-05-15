@@ -50,7 +50,6 @@
 |bending spoons|software engineer, internship|wrocław, dolnośląskie, poland|https://www.linkedin.com/jobs/view/3882683989|
 |bentley systems|intern - software development|iaşi, iaşi, romania|https://www.linkedin.com/jobs/view/3911477898|
 |bigblue|software engineer intern|paris, île-de-france, france|https://www.linkedin.com/jobs/view/3575815459|
-|boeing|multi skilled software engineering intern - 6 months internship|istanbul, istanbul, worldwide|https://www.linkedin.com/jobs/view/3905295532|
 |bolt|software engineer intern|tallinn, harjumaa, worldwide|https://www.linkedin.com/jobs/view/3911973559|
 |brainlab|internship / thesis – software development (c++)|heidelberg, baden-württemberg, germany|https://www.linkedin.com/jobs/view/3860351334|
 |brown brothers harriman|software development intern|cracow, małopolskie, poland|https://www.linkedin.com/jobs/view/3888849800|
