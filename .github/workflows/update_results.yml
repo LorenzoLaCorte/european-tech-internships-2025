@@ -15,11 +15,11 @@ jobs:
 
             - name: Retrieve Internships table.md
               run: |
-                curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/table.md
+                curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md
       
             - name: Retrieve New Grads table.md
               run: |
-                curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/new_grad/output/table.md
+                curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md
 
             - name: Check internships_table and newgrads_table content
               run: |
