@@ -1,4 +1,4 @@
-# European Tech Internships 2024
+# European Tech Internships 2025
 #### A collection of tech internships around europe.
 
 ## Index
