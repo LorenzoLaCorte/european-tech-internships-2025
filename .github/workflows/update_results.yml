@@ -34,8 +34,8 @@ jobs:
 
             - name: Update Results
               run: |
-                echo "# European Tech Internships 2024" > README.md
-                echo "#### A collection of tech internships around europe." >> README.md
+                echo "# European Tech Opportunities" > README.md
+                echo "A collection of tech internships, new grads, research opportunities and more." >> README.md
                 echo "" >> README.md
                 echo "## Index" >> README.md
                 echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)" >> README.md
