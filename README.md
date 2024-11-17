@@ -155,7 +155,6 @@ A collection of tech internships, new grads, research opportunities and more.
 |marketaxess|software engineer intern (post-trade)|london, england, united kingdom|https://www.linkedin.com/jobs/view/4059370481|
 |marketaxess|trading software engineer intern 2025|london, england, united kingdom|https://www.linkedin.com/jobs/view/4057775023|
 |mastercard|intern, software engineering - summer internship program 2025, lisbon, portugal-r-227499|lisbon, lisbon, portugal|https://www.linkedin.com/jobs/view/4048073532|
-|mastercard|software engineering intern, summer 2025 - london, uk-r-228723|london, england, united kingdom|https://www.linkedin.com/jobs/view/4054457703|
 |mongodb|software engineering intern - summer 2025 (barcelona)|barcelona, catalonia, spain|https://www.linkedin.com/jobs/view/4034681915|
 |monzo bank|software engineering internship (summer 2025)|london, england, united kingdom|https://www.linkedin.com/jobs/view/4046126201|
 |moody's corporation|backend software engineering intern|montbonnot-saint-martin, auvergne-rhône-alpes, france|https://www.linkedin.com/jobs/view/4068572240|
