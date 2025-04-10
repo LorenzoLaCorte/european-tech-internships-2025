@@ -57,6 +57,8 @@ jobs:
                 cat newgrads_table.md >> README.md
                 echo "## PhD and PhD Internship Positions" >> README.md
                 cat phd_table.md >> README.md
+                sed -i -E 's|(https://www\.linkedin\.com[^ ]+)|[🔗](\1)|g' README.md
+                rm internships_table.md newgrads_table.md phd_table.md
 
             - name: Commit and push if it changed
               run: |
