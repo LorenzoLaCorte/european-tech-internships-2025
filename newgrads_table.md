@@ -295,3 +295,4 @@
 |whatnot|ads software engineer, 2025 new grad|cracow, małopolskie, poland|https://www.linkedin.com/jobs/view/4157526667|
 |whatnot|software engineer, 2025 new grad|dublin, county dublin, ireland|https://www.linkedin.com/jobs/view/4149260099|
 |wise|graduate software engineer|tallinn, harjumaa, worldwide|https://www.linkedin.com/jobs/view/4142244820|
+
