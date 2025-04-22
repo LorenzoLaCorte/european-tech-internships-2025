@@ -55,6 +55,7 @@ jobs:
                 echo "" >> README.md
                 echo "## New Grad Positions" >> README.md
                 cat newgrads_table.md >> README.md
+                echo "" >> README.md
                 echo "## PhD and PhD Internship Positions" >> README.md
                 cat phd_table.md >> README.md
                 sed -i -E 's#(https://www\.linkedin\.com[^|]+)#[🔗](\1)|#g' README.md
