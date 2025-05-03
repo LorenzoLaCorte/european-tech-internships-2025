@@ -46,7 +46,7 @@ jobs:
                 echo "A collection of tech internships, new grads, research opportunities and more." >> README.md
                 echo "" >> README.md
                 echo "## Index" >> README.md
-                echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)  | 🎓🇪🇺 [European PhD and PhD Internsip Positions](#phd-positions)" >> README.md
+                echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)  | 🎓🇪🇺 [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)" >> README.md
                 echo "## Scraper" >> README.md
                 echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
                 echo "" >> README.md
