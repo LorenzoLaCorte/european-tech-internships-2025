@@ -13,32 +13,26 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Retrieve Internships table.md
+            - name: Retrieve Tables
               run: |
-                curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md
-      
-            - name: Retrieve New Grads table.md
-              run: |
-                curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md
+                declare -A urls=(
+                  [internships]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md"
+                  [newgrads]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md"
+                  [phd]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/update-results-phds/output/output-phds/table.md"
+                  [ml]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/main/output/output-ml/table.md"
+                )
+                for t in "${!urls[@]}"; do
+                  curl -o "${t}_table.md" "${urls[$t]}"
+                done
 
-            - name: Retrieve PhD table.md
+            - name: Check Tables Content
               run: |
-                curl -o phd_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/update-results-phds/output/output-phds/table.md
-  
-            - name: Check tables content
-              run: |
-                  if grep -q "404: Not Found" internships_table.md; then
-                    echo "Error: Invalid content in internships_table.md"
+                for t in internships newgrads phd ml; do
+                  if grep -q "404: Not Found" "${t}_table.md"; then
+                    echo "Error: Invalid content in ${t}_table.md"
                     exit 1
                   fi
-                  if grep -q "404: Not Found" newgrads_table.md; then
-                    echo "Error: Invalid content in newgrads_table.md"
-                    exit 1
-                  fi
-                  if grep -q "404: Not Found" phd_table.md; then
-                    echo "Error: Invalid content in phd_table.md"
-                    exit 1
-                  fi
+                done
 
             - name: Update Results
               run: |
@@ -49,17 +43,21 @@ jobs:
                 echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)  | 🎓🇪🇺 [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)" >> README.md
                 echo "## Scraper" >> README.md
                 echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
-                echo "" >> README.md
-                echo "## Internship Positions" >> README.md
-                cat internships_table.md >> README.md
-                echo "" >> README.md
-                echo "## New Grad Positions" >> README.md
-                cat newgrads_table.md >> README.md
-                echo "" >> README.md
-                echo "## PhD and PhD Internship Positions" >> README.md
-                cat phd_table.md >> README.md
+
+                declare -A headings=(
+                  [internships]="## Internship Positions"
+                  [ml]="## ML Internship Positions"
+                  [newgrads]="## New Grad Positions"
+                  [phd]="## PhD and PhD Internship Positions"
+                )
+                for t in internships ml newgrads phd; do
+                  echo "" >> README.md
+                  echo "${headings[$t]}" >> README.md
+                  cat "${t}_table.md" >> README.md
+                done
+
                 sed -i -E 's#(https://www\.linkedin\.com[^|]+)#[🔗](\1)|#g' README.md
-                rm internships_table.md newgrads_table.md phd_table.md
+                rm internships_table.md newgrads_table.md phd_table.md ml_table.md
 
             - name: Commit and push if it changed
               run: |
