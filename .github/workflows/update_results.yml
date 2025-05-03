@@ -13,19 +13,23 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Retrieve Internships table.md
+            - name: Retrieve Internships Table
               run: |
                 curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md
       
-            - name: Retrieve New Grads table.md
+            - name: Retrieve New Grads Table
               run: |
                 curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md
 
-            - name: Retrieve PhD table.md
+            - name: Retrieve PhD Table
               run: |
                 curl -o phd_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/update-results-phds/output/output-phds/table.md
-  
-            - name: Check tables content
+
+            - name: Retrieve ML Table
+              run: |
+                curl -o ml_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/main/output/output-ml/table.md
+
+            - name: Check Tables Content
               run: |
                   if grep -q "404: Not Found" internships_table.md; then
                     echo "Error: Invalid content in internships_table.md"
@@ -39,27 +43,40 @@ jobs:
                     echo "Error: Invalid content in phd_table.md"
                     exit 1
                   fi
+                  if grep -q "404: Not Found" ml_table.md; then
+                    echo "Error: Invalid content in ml_table.md"
+                    exit 1
+                  fi
 
             - name: Update Results
               run: |
                 echo "# European Tech Opportunities" > README.md
                 echo "A collection of tech internships, new grads, research opportunities and more." >> README.md
                 echo "" >> README.md
+                
                 echo "## Index" >> README.md
                 echo "💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)  | 🎓🇪🇺 [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)" >> README.md
                 echo "## Scraper" >> README.md
                 echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
+
                 echo "" >> README.md
                 echo "## Internship Positions" >> README.md
                 cat internships_table.md >> README.md
+
+                echo "" >> README.md
+                echo "## ML Internship Positions" >> README.md
+                cat ml_table.md >> README.md
+
                 echo "" >> README.md
                 echo "## New Grad Positions" >> README.md
                 cat newgrads_table.md >> README.md
+
                 echo "" >> README.md
                 echo "## PhD and PhD Internship Positions" >> README.md
                 cat phd_table.md >> README.md
+
                 sed -i -E 's#(https://www\.linkedin\.com[^|]+)#[🔗](\1)|#g' README.md
-                rm internships_table.md newgrads_table.md phd_table.md
+                rm internships_table.md newgrads_table.md phd_table.md ml_table.md
 
             - name: Commit and push if it changed
               run: |
