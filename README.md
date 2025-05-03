@@ -2,7 +2,7 @@
 A collection of tech internships, new grads, research opportunities and more.
 
 ## Index
-💼🇪🇺 [European Internship Positions](#internship-positions) | 🎓🇪🇺 [European New Grad Positions](#new-grad-positions)  | 🎓🇪🇺 [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)
+💼🇪🇺 [European Internship Positions](#internship-positions) | [European ML-specific Internship Positions](##ml-internship-positions) | [European New Grad Positions](#new-grad-positions)  | [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)
 ## Scraper
 [Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)
 
