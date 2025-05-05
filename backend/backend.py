@@ -16,7 +16,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route("/api/db-jobs", methods=["GET"])
+@app.route("/api/jobs", methods=["GET"])
 def get_real_jobs():
     session = create_session()
     db_jobs = session.query(DBJob).all()
@@ -34,6 +34,7 @@ def get_real_jobs():
             "industries": db_job.industries
         })
     session.close()
+    print(f"Fetched {len(results)} jobs from the database.")
     return jsonify(results)
 
 if __name__ == "__main__":

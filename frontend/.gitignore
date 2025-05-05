@@ -3,6 +3,8 @@ node_modules
 # Output
 .output
 .vercel
+.netlify
+.wrangler
 /.svelte-kit
 /build
 
@@ -10,10 +12,11 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# Backend
+# Env
 .env
-__pycache__
-*cpython*
+.env.*
+!.env.example
+!.env.test
 
 # Vite
 vite.config.js.timestamp-*
