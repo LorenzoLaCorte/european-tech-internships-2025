@@ -10,11 +10,10 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# Env
+# Backend
 .env
-.env.*
-!.env.example
-!.env.test
+__pycache__
+*cpython*
 
 # Vite
 vite.config.js.timestamp-*
