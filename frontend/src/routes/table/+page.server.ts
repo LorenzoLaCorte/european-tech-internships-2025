@@ -1,4 +1,5 @@
 import type { Job } from '$lib/index';
+import { API_BASE } from '$lib/api';
 
 export async function load({ url }: { url: URL }): Promise<{ jobs: Job[], page: number, limit: number, search: string }> {
     const page = parseInt(url.searchParams.get('page') || '1');
@@ -8,7 +9,7 @@ export async function load({ url }: { url: URL }): Promise<{ jobs: Job[], page: 
     console.log('Limit:', limit);
     console.log('Search:', search);
     try {
-        const res = await fetch(`http://127.0.0.1:5000/api/jobs?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}`);
+        const res = await fetch(`${API_BASE}/api/jobs?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}`);
         if (!res.ok) {
             const errorText = await res.text();
             console.error('Fetch error details:', errorText);
