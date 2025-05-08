@@ -9,7 +9,7 @@
 	import type { Job } from '$lib/index';
 	import { goto } from '$app/navigation';
 
-	export let data: { jobs: Job[], page: number, limit: number, search: string };
+	export let data: { jobs: Job[], page: number, limit: number, search: string, error?: string };
 	
 	/**
 	 * reactive assignments for the pagination objects
@@ -51,6 +51,10 @@
 		Search
 	  </button>
 	</form>
+
+	{#if data.error}
+	<p class="text-red-500 border border-red-300 p-2 rounded-md">{data.error}</p>
+	{/if}
   
 
 	<Table striped={true} hoverable={true} border={false} shadow>

@@ -26,4 +26,4 @@ ENV STATIC_DIR=/app/frontend_build
 ENV PORT 8080
 EXPOSE 8080
 
-CMD ["sh", "-c", "gunicorn app:app --workers 4 --threads 2 --bind 0.0.0.0:${PORT}"]
+CMD ["sh", "-c", "gunicorn app:app --workers 4 --threads 2 --bind 0.0.0.0:${PORT} --log-level debug --access-logfile - --error-logfile -"]

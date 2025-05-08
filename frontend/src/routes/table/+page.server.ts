@@ -1,7 +1,7 @@
 import type { Job } from '$lib/index';
 import { API_BASE } from '$lib/api';
 
-export async function load({ url }: { url: URL }): Promise<{ jobs: Job[], page: number, limit: number, search: string }> {
+export async function load({ url }: { url: URL }): Promise<{ jobs: Job[], page: number, limit: number, search: string, error?: string }> {
     const page = parseInt(url.searchParams.get('page') || '1');
     const limit = parseInt(url.searchParams.get('limit') || '10');
     const search = url.searchParams.get('search') || '';
@@ -18,7 +18,7 @@ export async function load({ url }: { url: URL }): Promise<{ jobs: Job[], page: 
         const jobs: Job[] = await res.json();
         return { jobs, page, limit, search };
     } catch (error) {
-        console.error('Load function error:', error);
-        throw error;
+        console.error("Error in +page.server.ts load function:", error);
+        return { jobs: [], page, limit, search, error: "Failed to load jobs." };
     }
 }

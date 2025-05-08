@@ -17,12 +17,16 @@ import random
 import re
 import os
 from sqlalchemy import or_
+import logging
 
 # tell Flask where the static site lives
 STATIC_DIR = os.getenv("STATIC_DIR", "frontend_build")
 app = Flask(__name__,
             static_folder=STATIC_DIR,
             static_url_path="") # served from the root URL
+
+app.logger.setLevel("DEBUG")
+logging.basicConfig(level=logging.DEBUG)
 
 # serve the built SvelteKit files
 @app.route("/", defaults={"path": ""})
@@ -142,6 +146,7 @@ def get_mock_jobs(page, limit, search):
 
 @app.route("/api/jobs", methods=["GET"])
 def get_jobs():
+    app.logger.debug(f"Entering get_jobs route")
     """
     Get paginated job postings from the database.
     Query parameters:
@@ -151,16 +156,21 @@ def get_jobs():
     Returns:
         - A JSON response containing a list of job postings.
     """
-    page = int(request.args.get("page", 1))
-    limit = int(request.args.get("limit", 10))
-    search = request.args.get("search", "")
-    
-    print(f"User request: {page=}, {limit=}, {search=}")
+    try:
+        page = int(request.args.get("page", 1))
+        limit = int(request.args.get("limit", 10))
+        search = request.args.get("search", "")
+        
+        app.logger.debug(f"Parameters: {page=}, {limit=}, {search=}")
+        print(f"User request: {page=}, {limit=}, {search=}")
 
-    if MOCK:
-        return get_mock_jobs(page, limit, search)
-    else:
-        return get_jobs_paginated(page, limit, search)
+        if MOCK:
+            return get_mock_jobs(page, limit, search)
+        else:
+            return get_jobs_paginated(page, limit, search)
+    except Exception as e:
+        app.logger.error(f"Error retrieving jobs: {e}")
+        return jsonify({"error": "An error occurred retrieving jobs."}), 500
 
 
 @app.route("/", defaults={"path": ""})
