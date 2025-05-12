@@ -1,12 +1,9 @@
 import os
-import logging
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, String, Text
 from sqlalchemy.ext.declarative import declarative_base
-
-logging.basicConfig(level=logging.DEBUG)
 
 load_dotenv()
 database_url = os.getenv('DATABASE_URL')
@@ -18,14 +15,12 @@ engine = create_engine(database_url, pool_pre_ping=True)
 Base = declarative_base()
 
 def create_session():
-    logging.debug("Creating a new database session")
     Session = sessionmaker(bind=engine)
     session = Session()
     return session
 
 
 def create_tables():
-    logging.debug("Creating tables if not exist")
     Base.metadata.create_all(engine)
 
 
