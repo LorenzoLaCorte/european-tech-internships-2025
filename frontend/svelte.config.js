@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -7,19 +7,12 @@ const config = {
 
   kit: {
     adapter: adapter({
-      pages: 'build',   // where HTML/JS/CSS go
-      assets: 'build',
-      fallback: 'index.html', // single-page-app fallback
-      precompress: true       // create .br/.gz files (optional)
-      // strict is automatically disabled when fallback is set
+      // default options are usually fine:
+      // out: 'build'
     }),
 
-    // optional but handy when you rely on client routing
-    // trailingSlash: 'never',
-
-    // If prerendering gives you ‘not all pages were prerendered’
-    // warnings, disable the crawl:
-    // prerender: { crawl: false }
+    // If you’d previously set `fallback`/`prerender`, you can remove those:
+    // trailingSlash, prerender, etc can stay at their defaults.
   }
 };
 
