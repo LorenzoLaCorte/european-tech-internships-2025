@@ -1,2 +1,3 @@
-export const API_BASE =
-    import.meta.env.VITE_API_BASE_URL || '';
+import { env } from '$env/dynamic/public';
+
+export const API_BASE = env.PUBLIC_API_BASE || '';

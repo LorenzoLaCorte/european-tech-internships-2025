@@ -17,26 +17,12 @@ import random
 import re
 import os
 from sqlalchemy import or_
+from flask_cors import CORS
 
-# tell Flask where the static site lives
-STATIC_DIR = os.getenv("STATIC_DIR", "frontend_build")
-app = Flask(__name__,
-            static_folder=STATIC_DIR,
-            static_url_path="") # served from the root URL
 
-# serve the built SvelteKit files
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def sveltekit_files(path: str):
-    """
-    Anything that isn't /api/* should return a static asset if it exists,
-    otherwise fall back to index.html so SvelteKit's router can handle it.
-    """
-    file_path = os.path.join(app.static_folder, path)
-    if path and os.path.exists(file_path):
-        return send_from_directory(app.static_folder, path)
-    return send_from_directory(app.static_folder, "index.html")
+app = Flask(__name__) # served from the root URL
 
+CORS(app)  # Enable CORS for all routes
 
 # Set to True to use mock data, False to use real data
 MOCK = False  
@@ -161,17 +147,6 @@ def get_jobs():
         return get_mock_jobs(page, limit, search)
     else:
         return get_jobs_paginated(page, limit, search)
-
-
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def spa(path: str):
-    if path.startswith("api"):
-        return "Not found", 404
-    file_path = os.path.join(app.static_folder, path)
-    if path and os.path.exists(file_path):
-        return send_from_directory(app.static_folder, path)
-    return send_from_directory(app.static_folder, "index.html")
 
 
 if __name__ == "__main__":

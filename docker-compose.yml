@@ -1,0 +1,23 @@
+services:
+  frontend:
+    container_name: frontend
+    hostname: frontend
+    build:
+      dockerfile: Dockerfile
+      context: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      PUBLIC_API_BASE: http://backend:${BACKEND_PORT}
+
+  backend:
+    container_name: backend
+    hostname: backend
+    build:
+      dockerfile: Dockerfile
+      context: backend
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: ${BACKEND_PORT}
+      DATABASE_URL: ${DATABASE_URL}
