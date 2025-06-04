@@ -14,7 +14,7 @@ services:
       - traefik.http.routers.earlycareers-backend.entrypoints=websecure
       - traefik.http.routers.earlycareers-backend.rule=Host(`earlycareers.${DOMAIN?Variable not set}`) && PathPrefix(`/api`)
       - traefik.http.routers.earlycareers-backend.tls.certresolver=dns-cloudflare
-      - traefik.http.routers.earlycareers-frontend.middlewares=secure-chain@file
+      - traefik.http.routers.earlycareers-backend.middlewares=secure-chain@file
       - traefik.http.services.earlycareers-backend.loadbalancer.server.port=8000
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/health-check/"]
@@ -40,7 +40,7 @@ services:
       - traefik.http.routers.earlycareers-frontend.middlewares=secure-chain@file
       - traefik.http.services.earlycareers-frontend.loadbalancer.server.port=3000
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5173/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
       interval: 10s
       timeout: 5s
       retries: 5
