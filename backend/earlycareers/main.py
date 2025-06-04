@@ -13,6 +13,8 @@ def custom_generate_unique_id(route: APIRoute) -> str:
 app = FastAPI(
     openapi_url=f"{settings.API_STR}/openapi.json",
     generate_unique_id_function=custom_generate_unique_id,
+    docs_url=f"{settings.API_STR}/docs",
+    redoc_url=f"{settings.API_STR}/redoc",
 )
 
 # CORS
