@@ -1,6 +1,7 @@
 set dotenv-load
 
-target := if "$MODE" == "prod" { "docker-compose.prod.yaml" } else { "docker-compose.dev.yaml" }
+target := if env("MODE") == "prod" { "docker-compose.prod.yaml" } else { "docker-compose.dev.yaml" }
+watch  := if env("MODE") == "prod" { "" } else { "--watch " }
 
 venv := if os_family() == "windows" { ".venv/Scripts" } else { ".venv/bin" }
 python := if os_family() == "windows" { "/python.exe" } else { "/python3" }
@@ -12,7 +13,7 @@ backend_python := backend_venv + python
     just --list
 
 docker-up:
-    docker compose -f {{ target }} up --watch --build
+    docker compose -f {{ target }} up {{ watch }} --build
 
 docker-stop:
     docker compose -f {{ target }} stop
