@@ -1,23 +1,39 @@
 services:
-  frontend:
-    container_name: frontend
-    hostname: frontend
+  earlycareers-backend:
+    container_name: earlycareers-backend
+    hostname: earlycareers-backend
     build:
-      dockerfile: Dockerfile
-      context: frontend
-    ports:
-      - "3000:3000"
-    environment:
-      PUBLIC_API_BASE: http://backend:${BACKEND_PORT}
-
-  backend:
-    container_name: backend
-    hostname: backend
-    build:
-      dockerfile: Dockerfile
       context: backend
-    ports:
-      - "8000:8000"
+      dockerfile: Dockerfile
     environment:
       PORT: ${BACKEND_PORT}
       DATABASE_URL: ${DATABASE_URL}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.earlycareers-backend.entrypoints=websecure
+      - traefik.http.routers.earlycareers-backend.rule=Host(`earlycareers.${DOMAIN?Variable not set}`) && PathPrefix(`/api`)
+      - traefik.http.routers.earlycareers-backend.tls.certresolver=dns-cloudflare
+      - traefik.http.services.earlycareers-backend.loadbalancer.server.port=${BACKEND_PORT}
+    restart: unless-stopped
+
+  earlycareers-frontend:
+    container_name: earlycareers-frontend
+    hostname: earlycareers-frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    environment:
+      PUBLIC_API_BASE: ${PUBLIC_API_BASE?Variable not set}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.earlycareers-frontend.entrypoints=websecure
+      - traefik.http.routers.earlycareers-frontend.rule=Host(`earlycareers.${DOMAIN?Variable not set}`)
+      - traefik.http.routers.earlycareers-frontend.tls.certresolver=dns-cloudflare
+      - traefik.http.services.earlycareers-frontend.loadbalancer.server.port=3000
+    restart: unless-stopped
+
+
+networks:
+  default:
+    name: infrastructure
+    external: true
