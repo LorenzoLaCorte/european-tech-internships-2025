@@ -4,7 +4,7 @@ services:
     hostname: earlycareers-backend
     build:
       context: backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     environment:
       DB_URI: ${DB_URI?Variable not set}
       BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS?Variable not set}
@@ -29,7 +29,7 @@ services:
     hostname: earlycareers-frontend
     build:
       context: frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     environment:
       PUBLIC_API_BASE: ${PUBLIC_API_BASE?Variable not set}
     labels:
