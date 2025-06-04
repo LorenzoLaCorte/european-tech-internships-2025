@@ -6,14 +6,22 @@ services:
       context: backend
       dockerfile: Dockerfile
     environment:
-      PORT: ${BACKEND_PORT}
-      DATABASE_URL: ${DATABASE_URL}
+      DB_URI: ${DB_URI?Variable not set}
+      BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS?Variable not set}
+      MODE: prod
     labels:
       - traefik.enable=true
       - traefik.http.routers.earlycareers-backend.entrypoints=websecure
       - traefik.http.routers.earlycareers-backend.rule=Host(`earlycareers.${DOMAIN?Variable not set}`) && PathPrefix(`/api`)
       - traefik.http.routers.earlycareers-backend.tls.certresolver=dns-cloudflare
-      - traefik.http.services.earlycareers-backend.loadbalancer.server.port=${BACKEND_PORT}
+      - traefik.http.routers.earlycareers-frontend.middlewares=secure-chain@file
+      - traefik.http.services.earlycareers-backend.loadbalancer.server.port=8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health-check/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     restart: unless-stopped
 
   earlycareers-frontend:
@@ -29,7 +37,14 @@ services:
       - traefik.http.routers.earlycareers-frontend.entrypoints=websecure
       - traefik.http.routers.earlycareers-frontend.rule=Host(`earlycareers.${DOMAIN?Variable not set}`)
       - traefik.http.routers.earlycareers-frontend.tls.certresolver=dns-cloudflare
+      - traefik.http.routers.earlycareers-frontend.middlewares=secure-chain@file
       - traefik.http.services.earlycareers-frontend.loadbalancer.server.port=3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     restart: unless-stopped
 
 

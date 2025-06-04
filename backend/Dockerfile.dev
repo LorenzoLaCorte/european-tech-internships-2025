@@ -1,14 +1,16 @@
 FROM python:3.13-slim-bookworm
 
-ENV PYTHONDONTWRITEBYTECODE=1
-
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app/
 
 # install uv
 # ref: https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
-COPY --from=ghcr.io/astral-sh/uv:0.5.9 /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:0.5.14 /uv /uvx /bin/
 
 # place executables in the environment at the front of the path
 # ref: https://docs.astral.sh/uv/guides/integration/docker/#using-the-environment
@@ -33,13 +35,11 @@ ENV PYTHONPATH=/app
 
 COPY ./pyproject.toml ./uv.lock /app/
 
-COPY app.py /app/app.py
-
-COPY db.py /app/db.py
+COPY ./earlycareers /app/earlycareers
 
 # sync the project
 # ref: https://docs.astral.sh/uv/guides/integration/docker/#intermediate-layers
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync
 
-CMD ["sh", "-c", "gunicorn app:app --workers 4 --threads 2 --bind 0.0.0.0:${PORT}"]
+CMD ["fastapi", "run", "--reload", "earlycareers/main.py"]

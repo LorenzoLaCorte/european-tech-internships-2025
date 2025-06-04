@@ -1,8 +1,10 @@
 FROM node:24.1-bookworm-slim
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV NODE_ENV=production
+WORKDIR /app
 
 # ref: https://pnpm.io/docker
 ENV PNPM_HOME=/pnpm
@@ -15,10 +17,4 @@ COPY ./ /app/
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
-ENV NODE_OPTIONS="--max-old-space-size=4096"
-
-RUN pnpm run build
-
-RUN pnpm prune --prod
-
-CMD ["node", "build/index.js"]
+CMD ["pnpm", "dev", "--host"]

@@ -1,16 +1,16 @@
 <script lang="ts">
-	
-	import { 
-		Table, 
-		TableHead, TableHeadCell, 
-		TableBody, TableBodyRow, TableBodyCell 
+
+	import {
+		Table,
+		TableHead, TableHeadCell,
+		TableBody, TableBodyRow, TableBodyCell
 	} from 'flowbite-svelte';
 
 	import type { Job } from '$lib/index';
 	import { goto } from '$app/navigation';
 
 	export let data: { jobs: Job[], page: number, limit: number, search: string };
-	
+
 	/**
 	 * reactive assignments for the pagination objects
 	 */
@@ -51,7 +51,7 @@
 		Search
 	  </button>
 	</form>
-  
+
 
 	<Table striped={true} hoverable={true} border={false} shadow>
 		<TableHead>
@@ -71,7 +71,7 @@
 					<TableBodyCell>{job.company}</TableBodyCell>
 					<TableBodyCell>{job.title}</TableBodyCell>
 					<TableBodyCell>{job.location}</TableBodyCell>
-					<TableBodyCell><a href={job.link} target="_blank" rel="noopener noreferrer">🔗</a></TableBodyCell>				
+					<TableBodyCell><a href={job.link} target="_blank" rel="noopener noreferrer">🔗</a></TableBodyCell>
 					<TableBodyCell>{job.description}</TableBodyCell>
 					<TableBodyCell>{job.employment_type}</TableBodyCell>
 					<TableBodyCell>{job.seniority_level}</TableBodyCell>
@@ -81,7 +81,7 @@
 			{/each}
 		</TableBody>
 	</Table>
-	
+
 	<div class="flex justify-center gap-2 mt-4">
 		<div class="flex gap-2">
 		  <button on:click={prevPage} disabled={page === 1} class="px-4 py-2 w-16 rounded-md border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition"> &lt </button>

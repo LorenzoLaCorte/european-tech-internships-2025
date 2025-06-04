@@ -16,7 +16,7 @@ jobs:
             - name: Retrieve Internships table.md
               run: |
                 curl -o internships_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md
-      
+
             - name: Retrieve New Grads table.md
               run: |
                 curl -o newgrads_table.md https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md
@@ -54,7 +54,7 @@ jobs:
                 git config --global user.email "actions@github.com"
                 git config --global user.name "GitHub Action"
                 git commit -am "Update Results" || exit 0
-              
+
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
