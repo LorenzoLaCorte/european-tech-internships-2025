@@ -30,8 +30,8 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile.prod
-    environment:
-      VITE_API_BASE_URL: ${VITE_API_BASE_URL?Variable not set}
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL?Variable not set}
     labels:
       - traefik.enable=true
       - traefik.http.routers.earlycareers-frontend.entrypoints=websecure

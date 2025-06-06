@@ -8,6 +8,10 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
+ARG VITE_API_BASE_URL
+
+ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
+
 # ref: https://pnpm.io/docker
 ENV PNPM_HOME=/pnpm
 
@@ -25,4 +29,6 @@ RUN pnpm run build
 
 RUN pnpm prune --prod
 
-CMD ["node", "build/index.js"]
+RUN pnpm add -g serve && pnpm cache delete && pnpm store prune
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
