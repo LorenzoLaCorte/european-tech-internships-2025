@@ -31,7 +31,7 @@ export function DataTablePagination({
 
   return (
     <div className="flex items-center justify-between py-4">
-      {/* Rows‐per‐page dropdown (using ui/select) */}
+      {/* Rows‐per‐page dropdown */}
       <div className="flex items-center space-x-2">
         <span className="text-sm">Rows per page:</span>
         <Select
@@ -54,8 +54,8 @@ export function DataTablePagination({
         </Select>
       </div>
 
-      {/* Just show “Page N” */}
-      <div className="text-sm">Page {page}</div>
+      {/* Only show the page number, no label */}
+      <div className="text-sm font-medium">{page}</div>
 
       {/* Pagination buttons */}
       <div className="flex items-center space-x-2">
@@ -75,6 +75,10 @@ export function DataTablePagination({
         >
           ‹ Prev
         </Button>
+
+        {/* Display plain page number here */}
+        {/* (already rendered above) */}
+
         <Button
           variant="outline"
           size="sm"
@@ -83,7 +87,7 @@ export function DataTablePagination({
         >
           Next ›
         </Button>
-        {/* “Last” is disabled; total count unknown */}
+        {/* “Last” disabled */}
         <Button variant="outline" size="sm" disabled className="opacity-50">
           Last »
         </Button>
