@@ -1,150 +1,3 @@
-// import * as React from "react";
-// import {
-//   type ColumnDef,
-//   flexRender,
-//   getCoreRowModel,
-//   getSortedRowModel,
-//   type SortingState,
-//   useReactTable,
-// } from "@tanstack/react-table";
-// import { ArrowDown, ArrowUp, ChevronsUpDown, ArrowUpRight } from "lucide-react";
-
-// import { Button } from "@/components/ui/button";
-// import {
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "@/components/ui/table";
-
-// import type { JobsGetJobsResponse } from "@/client"; // auto-generated types
-
-// /* ──────────────────────────────────────────────────────────────────
-//    1. Build <ColumnDef[]> once from the first row the API returns.
-//       For the “link” field we override render & disable sorting.
-//    ────────────────────────────────────────────────────────────────── */
-// function makeColumns(sample: JobsGetJobsResponse[number]): ColumnDef<typeof sample>[] {
-//   return Object.keys(sample).map((key): ColumnDef<typeof sample> => {
-//     if (key === "link") {
-//       return {
-//         accessorKey: key,
-//         header: () => <span className="sr-only">Link</span>,
-//         enableSorting: false,
-//         cell: ({ getValue }) => (
-//           <a
-//             href={String(getValue())}
-//             target="_blank"
-//             rel="noreferrer"
-//             className="inline-flex items-center gap-1 underline"
-//           >
-//             <ArrowUpRight className="h-3 w-3" />
-//             Open
-//           </a>
-//         ),
-//       };
-//     }
-
-//     return {
-//       accessorKey: key,
-//       header: ({ column }) => (
-//         <SortButton column={column} title={startCase(key)} />
-//       ),
-//     };
-//   });
-// }
-
-// /* ──────────────────────────────────────────────────────────────────
-//    2. Small util: title-case keys => “Employment Type”
-//    ────────────────────────────────────────────────────────────────── */
-// function startCase(s: string) {
-//   return s
-//     .replace(/_/g, " ")
-//     .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
-// }
-
-// /* ──────────────────────────────────────────────────────────────────
-//    3. Header with sort icons (shadcn docs)
-//    ────────────────────────────────────────────────────────────────── */
-// function SortButton({ column, title }: any) {
-//   return (
-//     <Button
-//       variant="ghost"
-//       size="sm"
-//       className="-ml-3 h-8"
-//       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-//     >
-//       {title}
-//       {column.getIsSorted() === "desc" ? (
-//         <ArrowDown className="ml-2 h-4 w-4" />
-//       ) : column.getIsSorted() === "asc" ? (
-//         <ArrowUp className="ml-2 h-4 w-4" />
-//       ) : (
-//         <ChevronsUpDown className="ml-2 h-4 w-4" />
-//       )}
-//     </Button>
-//   );
-// }
-
-// /* ──────────────────────────────────────────────────────────────────
-//    4. The public component
-//    ────────────────────────────────────────────────────────────────── */
-// export function JobTable({ data }: { data: JobsGetJobsResponse }) {
-//   const columns = React.useMemo(
-//     () => (data.length ? makeColumns(data[0]) : []),
-//     [data],
-//   );
-
-//   const [sorting, setSorting] = React.useState<SortingState>([]);
-//   const table = useReactTable({
-//     data,
-//     columns,
-//     state: { sorting },
-//     onSortingChange: setSorting,
-//     getCoreRowModel: getCoreRowModel(),
-//     getSortedRowModel: getSortedRowModel(),
-//   });
-
-//   return (
-//     <div className="rounded-md border">
-//       <Table>
-//         <TableHeader>
-//           {table.getHeaderGroups().map((hg) => (
-//             <TableRow key={hg.id}>
-//               {hg.headers.map((h) => (
-//                 <TableHead key={h.id}>
-//                   {flexRender(h.column.columnDef.header, h.getContext())}
-//                 </TableHead>
-//               ))}
-//             </TableRow>
-//           ))}
-//         </TableHeader>
-
-//         <TableBody>
-//           {table.getRowModel().rows.map((row) => (
-//             <TableRow key={row.id}>
-//               {row.getVisibleCells().map((cell) => (
-//                 <TableCell key={cell.id}>
-//                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-//                 </TableCell>
-//               ))}
-//             </TableRow>
-//           ))}
-
-//           {data.length === 0 && (
-//             <TableRow>
-//               <TableCell colSpan={columns.length} className="h-24 text-center">
-//                 No results.
-//               </TableCell>
-//             </TableRow>
-//           )}
-//         </TableBody>
-//       </Table>
-//     </div>
-//   );
-// }
-
 import {
   type ColumnDef,
   type SortingState,
@@ -167,14 +20,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-/* – dynamic column factory – */
+/** Build a ColumnDef<T> array from a “sample” row’s keys */
 function makeColumns(
   sample: JobsGetJobsResponse[number],
 ): ColumnDef<typeof sample>[] {
   return Object.keys(sample).map((key) => {
     if (key === "link") {
       return {
-        accessorKey: key,
+        accessorKey: "link",
         header: () => <span className="sr-only">Link</span>,
         enableSorting: false,
         cell: ({ getValue }) => (
@@ -190,6 +43,7 @@ function makeColumns(
         ),
       };
     }
+
     return {
       accessorKey: key,
       header: ({ column }) => (
@@ -205,7 +59,13 @@ function titleCase(s: string) {
     .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
 
-function SortBtn({ column, title }: any) {
+function SortBtn({
+  column,
+  title,
+}: {
+  column: any;
+  title: string;
+}) {
   return (
     <Button
       variant="ghost"

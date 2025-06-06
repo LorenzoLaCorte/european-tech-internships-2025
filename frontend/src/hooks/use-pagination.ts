@@ -1,16 +1,30 @@
+import type { JobsGetJobsResponse } from "@/client";
+import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
+import { useQuery } from "@tanstack/react-query";
 
-export function usePagination() {
-  const search = Route.useSearch(); // { page, limit, q }
-  const navigate = Route.useNavigate(); // typed navigate helper
+export function useJobsQuery() {
+  const { page, limit, q } = Route.useSearch();
+  const queryKey = ["jobs", { page, limit, q }];
 
-  const update = (next: Partial<{ page: number; limit: number; q: string }>) =>
-    navigate({
-      // keep same pathname, replace search state
-      search: (prev) => ({ ...prev, ...next }),
-      // replace = true keeps history tidy
-      replace: true,
-    });
+  const result = useQuery<JobsGetJobsResponse>({
+    queryKey,
+    queryFn: async () => {
+      const response = await JobsService.getJobs({
+        query: { page, limit, search: q },
+        throwOnError: true,
+      });
+      return response.data;
+    },
+    keepPreviousData: true,
+    staleTime: 1000 * 60 * 2,
+    suspense: true,
+  });
 
-  return { ...search, update };
+  return {
+    data: result.data || [],
+    isLoading: result.isLoading,
+    isError: result.isError,
+    hasMore: (result.data?.length ?? 0) === limit, // simple “hasMore” check
+  };
 }
