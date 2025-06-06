@@ -10,111 +10,85 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as LayoutImport } from "./routes/_layout";
-import { Route as LayoutIndexImport } from "./routes/_layout/index";
-import { Route as JobsImport } from "./routes/jobs";
+import { Route as rootRoute } from './routes/__root'
+import { Route as JobsImport } from './routes/jobs'
+import { Route as LayoutIndexImport } from './routes/_layout/index'
 
 // Create/Update Routes
 
 const JobsRoute = JobsImport.update({
-  id: "/jobs",
-  path: "/jobs",
+  id: '/jobs',
+  path: '/jobs',
   getParentRoute: () => rootRoute,
-} as any);
-
-const LayoutRoute = LayoutImport.update({
-  id: "/_layout",
-  getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const LayoutIndexRoute = LayoutIndexImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => LayoutRoute,
-} as any);
+  id: '/_layout/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/_layout": {
-      id: "/_layout";
-      path: "";
-      fullPath: "";
-      preLoaderRoute: typeof LayoutImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/jobs": {
-      id: "/jobs";
-      path: "/jobs";
-      fullPath: "/jobs";
-      preLoaderRoute: typeof JobsImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/_layout/": {
-      id: "/_layout/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof LayoutIndexImport;
-      parentRoute: typeof LayoutImport;
-    };
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsImport
+      parentRoute: typeof rootRoute
+    }
+    '/_layout/': {
+      id: '/_layout/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof LayoutIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-interface LayoutRouteChildren {
-  LayoutIndexRoute: typeof LayoutIndexRoute;
-}
-
-const LayoutRouteChildren: LayoutRouteChildren = {
-  LayoutIndexRoute: LayoutIndexRoute,
-};
-
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren);
-
 export interface FileRoutesByFullPath {
-  "": typeof LayoutRouteWithChildren;
-  "/jobs": typeof JobsRoute;
-  "/": typeof LayoutIndexRoute;
+  '/jobs': typeof JobsRoute
+  '/': typeof LayoutIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/jobs": typeof JobsRoute;
-  "/": typeof LayoutIndexRoute;
+  '/jobs': typeof JobsRoute
+  '/': typeof LayoutIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/_layout": typeof LayoutRouteWithChildren;
-  "/jobs": typeof JobsRoute;
-  "/_layout/": typeof LayoutIndexRoute;
+  __root__: typeof rootRoute
+  '/jobs': typeof JobsRoute
+  '/_layout/': typeof LayoutIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "" | "/jobs" | "/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/jobs" | "/";
-  id: "__root__" | "/_layout" | "/jobs" | "/_layout/";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/jobs' | '/'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/jobs' | '/'
+  id: '__root__' | '/jobs' | '/_layout/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  LayoutRoute: typeof LayoutRouteWithChildren;
-  JobsRoute: typeof JobsRoute;
+  JobsRoute: typeof JobsRoute
+  LayoutIndexRoute: typeof LayoutIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LayoutRoute: LayoutRouteWithChildren,
   JobsRoute: JobsRoute,
-};
+  LayoutIndexRoute: LayoutIndexRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -122,13 +96,7 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_layout",
-        "/jobs"
-      ]
-    },
-    "/_layout": {
-      "filePath": "_layout.tsx",
-      "children": [
+        "/jobs",
         "/_layout/"
       ]
     },
@@ -136,8 +104,7 @@ export const routeTree = rootRoute
       "filePath": "jobs.tsx"
     },
     "/_layout/": {
-      "filePath": "_layout/index.tsx",
-      "parent": "/_layout"
+      "filePath": "_layout/index.tsx"
     }
   }
 }
