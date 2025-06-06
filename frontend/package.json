@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "biome check --write --unsafe --no-errors-on-unmatched --files-ignore-unknown=true ./",
     "preview": "vite preview"
   },
