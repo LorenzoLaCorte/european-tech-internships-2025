@@ -24,4 +24,15 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Hide spinners only for the page‐number input */
+  .page-input::-webkit-outer-spin-button,
+  .page-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .page-input {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
 }

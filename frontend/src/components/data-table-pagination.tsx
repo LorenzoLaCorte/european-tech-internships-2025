@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Route } from "@/routes/jobs";
+import React from "react";
 
 interface DataTablePaginationProps {
   pageSize: number;
@@ -17,17 +18,34 @@ export function DataTablePagination({
   pageSize,
   hasMore,
 }: DataTablePaginationProps) {
-  // Pull current page/limit/q from URL
   const { page, limit, q } = Route.useSearch();
   const navigate = Route.useNavigate();
 
-  // Helper to update URL params in one place
+  // Helper to update both page and limit in the URL
   const updateSearch = (newPage: number, newLimit: number) =>
     navigate({
       to: ".",
       search: { page: newPage, limit: newLimit, q },
       replace: true,
     });
+
+  // Local state for the page‐input field
+  const [pageInput, setPageInput] = React.useState<string>(String(page));
+
+  // Keep local input in sync when `page` changes externally
+  React.useEffect(() => {
+    setPageInput(String(page));
+  }, [page]);
+
+  // Handle when user commits a new page number
+  const commitPageChange = () => {
+    const parsed = Number(pageInput);
+    if (Number.isNaN(parsed) || parsed < 1) {
+      setPageInput(String(page));
+      return;
+    }
+    updateSearch(parsed, limit);
+  };
 
   return (
     <div className="flex items-center justify-between py-4">
@@ -54,19 +72,8 @@ export function DataTablePagination({
         </Select>
       </div>
 
-      {/* Only show the page number, no label */}
-      <div className="text-sm font-medium">{page}</div>
-
-      {/* Pagination buttons */}
+      {/* Navigation buttons with page number between Prev and Next */}
       <div className="flex items-center space-x-2">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => updateSearch(1, limit)}
-          disabled={page === 1}
-        >
-          « First
-        </Button>
         <Button
           variant="outline"
           size="sm"
@@ -76,8 +83,19 @@ export function DataTablePagination({
           ‹ Prev
         </Button>
 
-        {/* Display plain page number here */}
-        {/* (already rendered above) */}
+        <input
+          type="number"
+          min={1}
+          className="page-input w-12 rounded border px-2 py-1 text-center text-sm"
+          value={pageInput}
+          onChange={(e) => setPageInput(e.target.value)}
+          onBlur={commitPageChange}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.currentTarget.blur();
+            }
+          }}
+        />
 
         <Button
           variant="outline"
@@ -86,10 +104,6 @@ export function DataTablePagination({
           disabled={!hasMore}
         >
           Next ›
-        </Button>
-        {/* “Last” disabled */}
-        <Button variant="outline" size="sm" disabled className="opacity-50">
-          Last »
         </Button>
       </div>
     </div>
