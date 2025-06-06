@@ -31,7 +31,7 @@ services:
       context: frontend
       dockerfile: Dockerfile.prod
     environment:
-      PUBLIC_API_BASE: ${PUBLIC_API_BASE?Variable not set}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL?Variable not set}
     labels:
       - traefik.enable=true
       - traefik.http.routers.earlycareers-frontend.entrypoints=websecure

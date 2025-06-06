@@ -1,0 +1,17 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "biome.enabled": true,
+    "biome.requireConfigFile": true,
+    "biome.projects": [
+        {
+            "path": "frontend",
+            "configFile": "frontend/biome.json"
+        }
+    ],
+    "biome.lspBin": "frontend/node_modules/.bin/biome",
+    "files.associations": {
+        "*.css": "tailwindcss"
+    }
+}

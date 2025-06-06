@@ -53,7 +53,7 @@ services:
       - "${LOCAL_FRONTEND_PORT}:5173"
     environment:
       LOCAL_FRONTEND_PORT: ${LOCAL_FRONTEND_PORT?Variable not set}
-      PUBLIC_API_BASE: ${PUBLIC_API_BASE?Variable not set}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL?Variable not set}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5173/"]
       interval: 10s

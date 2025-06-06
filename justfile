@@ -1,7 +1,7 @@
 set dotenv-load
 
 target := if env("MODE") == "prod" { "docker-compose.prod.yaml" } else { "docker-compose.dev.yaml" }
-docker_flags  := if env("MODE") == "prod" { "-d" } else { "--watch " }
+docker_flags  := if env("MODE") == "prod" { "-d" } else { "--watch" }
 
 venv := if os_family() == "windows" { ".venv/Scripts" } else { ".venv/bin" }
 python := if os_family() == "windows" { "/python.exe" } else { "/python3" }
