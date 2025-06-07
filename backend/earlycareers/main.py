@@ -28,3 +28,9 @@ if settings.all_cors_origins:
 
 
 app.include_router(router, prefix=settings.API_STR)
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="localhost", port=8000)

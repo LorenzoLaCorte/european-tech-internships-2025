@@ -17,7 +17,7 @@ services:
       - traefik.http.routers.earlycareers-backend.middlewares=secure-chain@file
       - traefik.http.services.earlycareers-backend.loadbalancer.server.port=8000
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health-check/"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/healthcheck/"]
       interval: 10s
       timeout: 5s
       retries: 5

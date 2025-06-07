@@ -24,7 +24,7 @@ services:
       DB_URI: ${DB_URI?Variable not set}
       BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS?Variable not set}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health-check/"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/healthcheck/"]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -14,8 +14,8 @@ if TYPE_CHECKING:
 router = APIRouter()
 
 
-@router.get("/health-check/", tags=["utils"])
-def health_check() -> bool:
+@router.get("/healthcheck/", tags=["utils"])
+def healthcheck() -> bool:
     return True
 
 
