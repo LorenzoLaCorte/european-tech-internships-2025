@@ -1,13 +1,16 @@
 import { defaultPlugins, defineConfig } from "@hey-api/openapi-ts";
 
 export default defineConfig({
-  client: "@hey-api/client-fetch",
   experimentalParser: true,
   input: "./openapi.json",
   output: "src/client",
   plugins: [
     ...defaultPlugins,
     // "@hey-api/schemas",
+    {
+      name: "@hey-api/client-fetch",
+      baseUrl: false
+    },
     {
       name: "@hey-api/sdk",
       //! NOTE: this doesn't allow tree-shaking
@@ -17,6 +20,7 @@ export default defineConfig({
         // @ts-ignore
         return extractOperationName(operation.id, operation.path);
       },
+      classNameBuilder: '{{name}}Service'
     },
   ],
 });

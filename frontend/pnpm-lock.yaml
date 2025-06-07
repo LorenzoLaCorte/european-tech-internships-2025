@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hey-api/client-fetch':
-        specifier: ^0.7.3
-        version: 0.7.3
+        specifier: ^0.12.0
+        version: 0.12.0(@hey-api/openapi-ts@0.71.1(typescript@5.6.3))
       '@radix-ui/react-dialog':
         specifier: ^1.1.14
         version: 1.1.14(@types/react-dom@19.1.6(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -51,8 +51,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       lucide-react:
-        specifier: ^0.474.0
-        version: 0.474.0(react@19.1.0)
+        specifier: ^0.513.0
+        version: 0.513.0(react@19.1.0)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -94,8 +94,8 @@ importers:
         specifier: ^1.9.4
         version: 1.9.4
       '@hey-api/openapi-ts':
-        specifier: ^0.61.3
-        version: 0.61.3(typescript@5.6.3)
+        specifier: ^0.71.1
+        version: 0.71.1(typescript@5.6.3)
       '@tailwindcss/postcss':
         specifier: ^4.1.8
         version: 4.1.8
@@ -121,8 +121,8 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.19.4)(yaml@2.8.0))
       globals:
-        specifier: ^15.15.0
-        version: 15.15.0
+        specifier: ^16.2.0
+        version: 16.2.0
       postcss:
         specifier: ^8.5.4
         version: 8.5.4
@@ -440,16 +440,18 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@hey-api/client-fetch@0.7.3':
-    resolution: {integrity: sha512-nysIXMag9nr5ENy+47G0AYsegdT7vT6S4KLfY7NVgM6HsyZ0DrhCZvz5nP70M16x9i860SrnXhjpcuHx0g5sDQ==}
+  '@hey-api/client-fetch@0.12.0':
+    resolution: {integrity: sha512-/iZ6dhs39N0kjzCa9tlNeLNufVUd8zzv/wI1ewQt5AEHaVuDnAxvuQT+fRIPYkfIWKR3gVZKRp5mcCo29voYzQ==}
+    peerDependencies:
+      '@hey-api/openapi-ts': < 2
 
-  '@hey-api/json-schema-ref-parser@1.0.1':
-    resolution: {integrity: sha512-dBt0A7op9kf4BcK++x6HBYDmvCvnJUZEGe5QytghPFHnMXPyKwDKomwL/v5e9ERk6E0e1GzL/e/y6pWUso9zrQ==}
+  '@hey-api/json-schema-ref-parser@1.0.6':
+    resolution: {integrity: sha512-yktiFZoWPtEW8QKS65eqKwA5MTKp88CyiL8q72WynrBs/73SAaxlSWlA2zW/DZlywZ5hX1OYzrCC0wFdvO9c2w==}
     engines: {node: '>= 16'}
 
-  '@hey-api/openapi-ts@0.61.3':
-    resolution: {integrity: sha512-Ls9MBRa5+vg7UHw6fIcfdgcCyZ9vKtRw63nWxwF9zjJIPlzVOZO6xKuzGmDc6o0Pb6XCdTz6lPV5hcV0R4b/ag==}
-    engines: {node: ^18.20.5 || ^20.11.1 || >=22.11.0}
+  '@hey-api/openapi-ts@0.71.1':
+    resolution: {integrity: sha512-LZhHH1CngE2vRgMdZGRI4UrxJ/JHvcsAy4Qjsbiu9BGWyZIraIqWLMsQgqB3TU5yJTrblFo9DA7RI5LIUol0yg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=22.10.0}
     hasBin: true
     peerDependencies:
       typescript: ^5.5.3
@@ -1275,6 +1277,10 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  ansi-colors@4.1.3:
+    resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
+    engines: {node: '>=6'}
+
   ansis@3.17.0:
     resolution: {integrity: sha512-0qWUglt9JEqLFr3w1I1pbrChn1grhaiAR2ocX1PP/flRmxgtwTzPFFFnfIlD6aMOLQZgSuCRlidD70lvx8yhzg==}
     engines: {node: '>=14'}
@@ -1342,6 +1348,10 @@ packages:
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
+
+  color-support@1.1.3:
+    resolution: {integrity: sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==}
+    hasBin: true
 
   commander@13.0.0:
     resolution: {integrity: sha512-oPYleIY8wmTVzkvQq10AEok6YcTC4sRUBl8F9gVuwchGVUCTbl/vhLTaQqutuuySYOsu8YTgV+OxKc/8Yvx+mQ==}
@@ -1450,8 +1460,8 @@ packages:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
 
-  globals@15.15.0:
-    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
+  globals@16.2.0:
+    resolution: {integrity: sha512-O+7l9tPdHCU320IigZZPj5zmRCFG9xHmx9cU8FqU2Rp+JN714seHV+2S9+JslCpY4gJwU2vOGox0wzgae/MCEg==}
     engines: {node: '>=18'}
 
   goober@2.1.16:
@@ -1568,11 +1578,14 @@ packages:
     resolution: {integrity: sha512-xi6IyHML+c9+Q3W0S4fCQJOym42pyurFiJUHEcEyHS0CeKzia4yZDEsLlqOFykxOdHpNy0NmvVO31vcSqAxJCg==}
     engines: {node: '>= 12.0.0'}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.474.0:
-    resolution: {integrity: sha512-CmghgHkh0OJNmxGKWc0qfPJCYHASPMVSyGY8fj3xgk4v84ItqDg64JNKFZn5hC6E0vHi6gxnbCgwhyVB09wQtA==}
+  lucide-react@0.513.0:
+    resolution: {integrity: sha512-CJZKq2g8Y8yN4Aq002GahSXbG2JpFv9kXwyiOAMvUBv7pxeOFHUWKB0mO7MiY4ZVFCV4aNjv2BJFq/z3DgKPQg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -2171,18 +2184,23 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@hey-api/client-fetch@0.7.3': {}
+  '@hey-api/client-fetch@0.12.0(@hey-api/openapi-ts@0.71.1(typescript@5.6.3))':
+    dependencies:
+      '@hey-api/openapi-ts': 0.71.1(typescript@5.6.3)
 
-  '@hey-api/json-schema-ref-parser@1.0.1':
+  '@hey-api/json-schema-ref-parser@1.0.6':
     dependencies:
       '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.0
+      lodash: 4.17.21
 
-  '@hey-api/openapi-ts@0.61.3(typescript@5.6.3)':
+  '@hey-api/openapi-ts@0.71.1(typescript@5.6.3)':
     dependencies:
-      '@hey-api/json-schema-ref-parser': 1.0.1
+      '@hey-api/json-schema-ref-parser': 1.0.6
+      ansi-colors: 4.1.3
       c12: 2.0.1
+      color-support: 1.1.3
       commander: 13.0.0
       handlebars: 4.7.8
       typescript: 5.6.3
@@ -2941,6 +2959,8 @@ snapshots:
 
   acorn@8.14.1: {}
 
+  ansi-colors@4.1.3: {}
+
   ansis@3.17.0: {}
 
   anymatch@3.1.3:
@@ -3022,6 +3042,8 @@ snapshots:
       clsx: 2.1.1
 
   clsx@2.1.1: {}
+
+  color-support@1.1.3: {}
 
   commander@13.0.0: {}
 
@@ -3125,7 +3147,7 @@ snapshots:
 
   globals@11.12.0: {}
 
-  globals@15.15.0: {}
+  globals@16.2.0: {}
 
   goober@2.1.16(csstype@3.1.3):
     dependencies:
@@ -3211,11 +3233,13 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.30.1
       lightningcss-win32-x64-msvc: 1.30.1
 
+  lodash@4.17.21: {}
+
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.474.0(react@19.1.0):
+  lucide-react@0.513.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 

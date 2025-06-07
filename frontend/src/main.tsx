@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "@/index.css";
-import { client } from "@/client/sdk.gen";
+import { client } from "@/client/client.gen";
 import { Toaster } from "@/components/ui/toaster";
 import { routeTree } from "@/routeTree.gen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
