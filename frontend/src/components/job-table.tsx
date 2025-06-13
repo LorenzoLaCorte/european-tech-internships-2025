@@ -1,4 +1,5 @@
 import {
+  type Column,
   type ColumnDef,
   type SortingState,
   flexRender,
@@ -58,12 +59,11 @@ function titleCase(s: string) {
     .replace(/_/g, " ")
     .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
-
 function SortBtn({
   column,
   title,
 }: {
-  column: any;
+  column: Column<JobsGetJobsResponse[number], unknown>;
   title: string;
 }) {
   return (

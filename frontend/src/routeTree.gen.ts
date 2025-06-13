@@ -10,85 +10,85 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as JobsImport } from './routes/jobs'
-import { Route as LayoutIndexImport } from './routes/_layout/index'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as LayoutIndexImport } from "./routes/_layout/index";
+import { Route as JobsImport } from "./routes/jobs";
 
 // Create/Update Routes
 
 const JobsRoute = JobsImport.update({
-  id: '/jobs',
-  path: '/jobs',
+  id: "/jobs",
+  path: "/jobs",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const LayoutIndexRoute = LayoutIndexImport.update({
-  id: '/_layout/',
-  path: '/',
+  id: "/_layout/",
+  path: "/",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/jobs': {
-      id: '/jobs'
-      path: '/jobs'
-      fullPath: '/jobs'
-      preLoaderRoute: typeof JobsImport
-      parentRoute: typeof rootRoute
-    }
-    '/_layout/': {
-      id: '/_layout/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof LayoutIndexImport
-      parentRoute: typeof rootRoute
-    }
+    "/jobs": {
+      id: "/jobs";
+      path: "/jobs";
+      fullPath: "/jobs";
+      preLoaderRoute: typeof JobsImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/_layout/": {
+      id: "/_layout/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof LayoutIndexImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/jobs': typeof JobsRoute
-  '/': typeof LayoutIndexRoute
+  "/jobs": typeof JobsRoute;
+  "/": typeof LayoutIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/jobs': typeof JobsRoute
-  '/': typeof LayoutIndexRoute
+  "/jobs": typeof JobsRoute;
+  "/": typeof LayoutIndexRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/jobs': typeof JobsRoute
-  '/_layout/': typeof LayoutIndexRoute
+  __root__: typeof rootRoute;
+  "/jobs": typeof JobsRoute;
+  "/_layout/": typeof LayoutIndexRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/jobs' | '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/jobs' | '/'
-  id: '__root__' | '/jobs' | '/_layout/'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/jobs" | "/";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/jobs" | "/";
+  id: "__root__" | "/jobs" | "/_layout/";
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  JobsRoute: typeof JobsRoute
-  LayoutIndexRoute: typeof LayoutIndexRoute
+  JobsRoute: typeof JobsRoute;
+  LayoutIndexRoute: typeof LayoutIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   JobsRoute: JobsRoute,
   LayoutIndexRoute: LayoutIndexRoute,
-}
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {

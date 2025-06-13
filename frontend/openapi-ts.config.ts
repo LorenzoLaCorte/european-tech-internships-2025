@@ -9,7 +9,7 @@ export default defineConfig({
     // "@hey-api/schemas",
     {
       name: "@hey-api/client-fetch",
-      baseUrl: false
+      baseUrl: false,
     },
     {
       name: "@hey-api/sdk",
@@ -20,7 +20,7 @@ export default defineConfig({
         // @ts-ignore
         return extractOperationName(operation.id, operation.path);
       },
-      classNameBuilder: '{{name}}Service'
+      classNameBuilder: "{{name}}Service",
     },
   ],
 });
