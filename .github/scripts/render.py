@@ -4,6 +4,7 @@ import urllib.request
 def get_table(url):
     with urllib.request.urlopen(url) as f:
         content = f.read().decode('utf-8')
+        content = re.sub(r'(https://www\.linkedin\.com[^|]+)', r'[🔗](\1)|', content)
         if "404: Not Found" in content:
             print(f"Error: Invalid content from {url}")
             exit(1)
