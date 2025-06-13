@@ -19,7 +19,7 @@ export const Route = createFileRoute("/jobs")({
 });
 
 function JobsPage() {
-  const { page, limit, q } = Route.useSearch();
+  const { limit } = Route.useSearch();
   const navigate = Route.useNavigate();
 
   // When user searches, reset page back to 1
