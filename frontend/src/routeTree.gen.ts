@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from "./routes/__root";
 import { Route as LayoutIndexImport } from "./routes/_layout/index";
+import { Route as AdvancedImport } from "./routes/advanced";
 import { Route as JobsImport } from "./routes/jobs";
 
 // Create/Update Routes
@@ -19,6 +20,12 @@ import { Route as JobsImport } from "./routes/jobs";
 const JobsRoute = JobsImport.update({
   id: "/jobs",
   path: "/jobs",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const AdvancedRoute = AdvancedImport.update({
+  id: "/advanced",
+  path: "/advanced",
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -39,6 +46,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof JobsImport;
       parentRoute: typeof rootRoute;
     };
+    "/advanced": {
+      id: "/advanced";
+      path: "/advanced";
+      fullPath: "/advanced";
+      preLoaderRoute: typeof AdvancedImport;
+      parentRoute: typeof rootRoute;
+    };
     "/_layout/": {
       id: "/_layout/";
       path: "/";
@@ -53,36 +67,41 @@ declare module "@tanstack/react-router" {
 
 export interface FileRoutesByFullPath {
   "/jobs": typeof JobsRoute;
+  "/advanced": typeof AdvancedRoute;
   "/": typeof LayoutIndexRoute;
 }
 
 export interface FileRoutesByTo {
   "/jobs": typeof JobsRoute;
+  "/advanced": typeof AdvancedRoute;
   "/": typeof LayoutIndexRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
   "/jobs": typeof JobsRoute;
+  "/advanced": typeof AdvancedRoute;
   "/_layout/": typeof LayoutIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/jobs" | "/";
+  fullPaths: "/jobs" | "/advanced" | "/";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/jobs" | "/";
-  id: "__root__" | "/jobs" | "/_layout/";
+  to: "/jobs" | "/advanced" | "/";
+  id: "__root__" | "/jobs" | "/advanced" | "/_layout/";
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
   JobsRoute: typeof JobsRoute;
+  AdvancedRoute: typeof AdvancedRoute;
   LayoutIndexRoute: typeof LayoutIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   JobsRoute: JobsRoute,
+  AdvancedRoute: AdvancedRoute,
   LayoutIndexRoute: LayoutIndexRoute,
 };
 
@@ -97,11 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/jobs",
+        "/advanced",
         "/_layout/"
       ]
     },
     "/jobs": {
       "filePath": "jobs.tsx"
+    },
+    "/advanced": {
+      "filePath": "advanced.tsx"
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx"
