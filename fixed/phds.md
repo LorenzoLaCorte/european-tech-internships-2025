@@ -1,0 +1,8 @@
+| **University**                | **Program**                          | **Application Period**                          | **Typical Duration** |
+|-------------------------------|--------------------------------------|--------------------------------------------------|----------------------|
+| [**EPFL**](https://www.epfl.ch/education/phd/edic-computer-and-communication-sciences/edic-computer-and-communication-sciences/edic-how-to-apply/)                      | PhD in Computer Science              | ? to December 15, 2024 | 4 years               |
+| [**ETH Zurich**](https://inf.ethz.ch/doctorate/doctoral-study-program/application-and-admission.html)                | PhD in Computer Science              | No specific deadlines, accepted year-round       | 3-4 years             |
+| [**University of Oxford**](https://www.ox.ac.uk/admissions/graduate/courses/dphil-computer-science)       | DPhil in Computer Science            | 12 October to December 3 | 3-4 years             |
+| **Max Planck Institute**       | PhD in Computer Science (IMPRS)      | ?                     | 3-4 years             |
+| [**University of Edinburgh**](https://www.ed.ac.uk/studying/postgraduate/degrees/index.php?r=site/bySubject&edition=2024&sid=9)    | PhD in Informatics                   | 31 March | 3-4 years             |
+| [**Technical University of Munich (TUM)**](https://www.cs.cit.tum.de/en/cs/research/) | PhD in Informatics        | Rolling admissions, no fixed deadline            | 3-5 years             |

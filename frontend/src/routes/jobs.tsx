@@ -4,19 +4,32 @@ import { z } from "zod";
 
 import { DataTablePagination } from "@/components/data-table-pagination";
 import { JobSearchForm } from "@/components/job-search-form";
+import { AdvancedSearchForm } from "@/components/job-advanced-search-form";
+
 import { JobTable } from "@/components/job-table";
 import { JobTableSkeleton } from "@/components/job-table-skeleton";
 
-import { useJobsQuery } from "@/hooks/use-pagination";
+import { useJobsQuery, useAdvancedJobsQuery } from "@/hooks/use-pagination";
 
 export const Route = createFileRoute("/jobs")({
   validateSearch: z.object({
     page: z.coerce.number().int().min(1).default(1),
     limit: z.coerce.number().int().min(1).max(100).default(10),
     q: z.string().default(""),
+    title: z.array(z.string()).catch([]),
+    company: z.array(z.string()).catch([]),
+    location: z.array(z.string()).catch([]),
+    description: z.array(z.string()).catch([]),
   }),
   component: JobsPage,
 });
+
+export type SearchValues = {
+  title: string[];
+  company: string[];
+  location: string[];
+  description: string[];
+};
 
 function JobsPage() {
   const { limit } = Route.useSearch();
@@ -28,11 +41,19 @@ function JobsPage() {
       to: ".",
       search: { page: 1, limit, q: val },
       replace: true,
+  });
+
+  const handleAdvancedSearch = (val: SearchValues) =>
+    navigate({
+      to: ".",
+      search: { page: 1, limit, ...val },
+      replace: true,
     });
 
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-4 p-4">
       <JobSearchForm onSubmit={handleSearch} />
+      <AdvancedSearchForm onSubmit={handleAdvancedSearch} />
 
       {/* Only table + pagination will suspend */}
       <Suspense fallback={<JobTableSkeleton />}>
@@ -43,8 +64,17 @@ function JobsPage() {
 }
 
 function JobsTableContainer() {
-  // Suspense hook → throws while fetching
-  const { data, hasMore } = useJobsQuery();
+  const search = Route.useSearch();
+
+  const advancedSearchActive = [
+    search.title,
+    search.company,
+    search.location,
+    search.description,
+  ].some((fields) => fields.length > 0);
+
+  const { data, hasMore } = useJobsQuery(advancedSearchActive);
+
   return (
     <>
       <JobTable data={data} />

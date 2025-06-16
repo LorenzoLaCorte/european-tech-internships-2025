@@ -78,11 +78,13 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   JobsRoute: typeof JobsRoute;
+  AdvancedRoute: typeof AdvancedRoute;
   LayoutIndexRoute: typeof LayoutIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   JobsRoute: JobsRoute,
+  AdvancedRoute: AdvancedRoute,
   LayoutIndexRoute: LayoutIndexRoute,
 };
 
