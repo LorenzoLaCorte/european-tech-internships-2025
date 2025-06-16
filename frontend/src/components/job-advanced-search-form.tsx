@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Route, type SearchValues } from "@/routes/advanced";
+import { Route, type SearchValues } from "@/routes/jobs";
 import { type Tag, TagInput } from "emblor";
 import * as React from "react";
 
@@ -33,14 +33,6 @@ export function AdvancedSearchForm({
     );
   }, [search]);
 
-  const handleClick = () =>
-    onSubmit({
-      title: titleTags.map((t) => t.text),
-      company: companyTags.map((t) => t.text),
-      location: locationTags.map((t) => t.text),
-      description: descriptionTags.map((t) => t.text),
-    });
-
   return (
     <div className="flex flex-col gap-2">
       <TagInput
@@ -63,8 +55,19 @@ export function AdvancedSearchForm({
         setTags={setDescriptionTags}
         placeholder="Description keywords"
       />
-      <Button variant="outline" type="button" onClick={handleClick}>
-        Search
+      <Button 
+        variant="outline"
+        type="button"
+        onClick={() =>
+          onSubmit({
+          title: titleTags.map((t) => t.text),
+          company: companyTags.map((t) => t.text),
+          location: locationTags.map((t) => t.text),
+          description: descriptionTags.map((t) => t.text),
+        })
+        }
+      >
+        Advanced Search
       </Button>
     </div>
   );
