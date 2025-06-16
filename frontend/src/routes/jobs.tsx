@@ -9,7 +9,7 @@ import { AdvancedSearchForm } from "@/components/job-advanced-search-form";
 import { JobTable } from "@/components/job-table";
 import { JobTableSkeleton } from "@/components/job-table-skeleton";
 
-import { useJobsQuery } from "@/hooks/use-pagination";
+import { useJobsQuery, useAdvancedJobsQuery } from "@/hooks/use-pagination";
 
 export const Route = createFileRoute("/jobs")({
   validateSearch: z.object({
@@ -64,8 +64,17 @@ function JobsPage() {
 }
 
 function JobsTableContainer() {
-  // Suspense hook → throws while fetching
-  const { data, hasMore } = useJobsQuery();
+  const search = Route.useSearch();
+
+  const advancedSearchActive = [
+    search.title,
+    search.company,
+    search.location,
+    search.description,
+  ].some((fields) => fields.length > 0);
+
+  const { data, hasMore } = useJobsQuery(advancedSearchActive);
+
   return (
     <>
       <JobTable data={data} />
