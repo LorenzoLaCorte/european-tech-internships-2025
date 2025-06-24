@@ -5,11 +5,18 @@ import { z } from "zod";
 import { DataTablePagination } from "@/components/data-table-pagination";
 import { JobSearchForm } from "@/components/job-search-form";
 import { AdvancedSearchForm } from "@/components/job-advanced-search-form";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronsUpDown } from "lucide-react"
+import { Button } from "@/components/ui/button";
 
 import { JobTable } from "@/components/job-table";
 import { JobTableSkeleton } from "@/components/job-table-skeleton";
 
-import { useJobsQuery, useAdvancedJobsQuery } from "@/hooks/use-pagination";
+import { useJobsQuery } from "@/hooks/use-pagination";
 
 export const Route = createFileRoute("/jobs")({
   validateSearch: z.object({
@@ -53,7 +60,23 @@ function JobsPage() {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-4 p-4">
       <JobSearchForm onSubmit={handleSearch} />
-      <AdvancedSearchForm onSubmit={handleAdvancedSearch} />
+
+      <Collapsible>
+        <CollapsibleTrigger asChild>
+          <Button variant="ghost" size="icon" className="size-8">
+            <ChevronsUpDown />
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </CollapsibleTrigger>
+        <span className="text-sm font-semibold text-muted-foreground">
+          Advanced Search
+        </span>
+        <CollapsibleContent className="mt-2">
+          <AdvancedSearchForm 
+            onSubmit={handleAdvancedSearch} 
+          />
+        </CollapsibleContent>
+      </Collapsible>
 
       {/* Only table + pagination will suspend */}
       <Suspense fallback={<JobTableSkeleton />}>
