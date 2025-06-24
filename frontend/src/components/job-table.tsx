@@ -20,6 +20,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 /** Build a ColumnDef<T> array from a “sample” row’s keys */
 function makeColumns(
@@ -42,6 +50,40 @@ function makeColumns(
             Open
           </a>
         ),
+      };
+    }
+    if (key === "description") {
+      return {
+        accessorKey: "description",
+        header: ({ column }) => (
+          <SortBtn column={column} title={titleCase(key)} />
+        ),
+        cell: ({ getValue }) => {
+          const desc = String(getValue() ?? "");
+          const truncated = desc.length > 30 ? desc.slice(0, 30) + "..." : desc;
+          const [open, setOpen] = React.useState(false);
+          if (!desc) return null;
+          return (
+            <>
+              <span>{truncated} </span>
+              {desc.length > 30 && (
+                <>
+                  <Dialog open={open} onOpenChange={setOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="link" size="sm" className="px-1 h-auto text-xs align-baseline">Read more</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
+                      <DialogHeader>
+                        <DialogTitle>Description</DialogTitle>
+                        <DialogDescription>{desc}</DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                </>
+              )}
+            </>
+          );
+        },
       };
     }
 
