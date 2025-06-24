@@ -24,6 +24,23 @@ _SEARCHABLE = (
 )
 
 
+def _phrase_filter(
+    column: ColumnElement[str], phrases: list[str] | None
+) -> ColumnElement[bool] | None:
+    """Return OR-combined filter for *phrases* against *column*."""
+    if not phrases:
+        return None
+
+    phrase_exprs = []
+    for phrase in phrases:
+        tokens = _tokens(phrase)
+        if not tokens:
+            continue
+        phrase_exprs.append(and_(*(column.ilike(f"%{t}%") for t in tokens)))
+
+    return or_(*phrase_exprs) if phrase_exprs else None
+
+
 def _tokens(text: str) -> list[str]:
     """Return lowercase word-tokens found in *text*."""
     return _TOKEN_RE.findall(text.lower())
@@ -48,6 +65,32 @@ def get_jobs(
     search_filter = _search_filter(search)
     if search_filter is not None:
         stmt = stmt.where(search_filter)
+
+    stmt = stmt.offset((page - 1) * limit).limit(limit)
+    return list(session.exec(stmt).all())
+
+
+def get_jobs_advanced(
+    *,
+    session: Session,
+    page: int = 1,
+    limit: int = 10,
+    title: list[str] | None = None,
+    company: list[str] | None = None,
+    location: list[str] | None = None,
+    description: list[str] | None = None,
+) -> list[Job]:
+    stmt = select(Job)
+
+    filters = [
+        _phrase_filter(Job.title, title),
+        _phrase_filter(Job.company, company),
+        _phrase_filter(Job.location, location),
+        _phrase_filter(Job.description, description),
+    ]
+    actual_filters = [f for f in filters if f is not None]
+    if actual_filters:
+        stmt = stmt.where(and_(*actual_filters))
 
     stmt = stmt.offset((page - 1) * limit).limit(limit)
     return list(session.exec(stmt).all())

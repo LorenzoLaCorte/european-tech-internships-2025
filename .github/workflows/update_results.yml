@@ -13,8 +13,51 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Build README
-              run: python .github/scripts/render.py
+            - name: Retrieve Tables
+              run: |
+                declare -A urls=(
+                  [internships]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-internships/table.md"
+                  [newgrads]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/main/output/output-new-grads/table.md"
+                  [phd]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/update-results-phds/output/output-phds/table.md"
+                  [ml]="https://raw.githubusercontent.com/LorenzoLaCorte/internship-scraper/refs/heads/main/output/output-ml/table.md"
+                )
+                for t in "${!urls[@]}"; do
+                  curl -o "${t}_table.md" "${urls[$t]}"
+                done
+
+            - name: Check Tables Content
+              run: |
+                for t in internships newgrads phd ml; do
+                  if grep -q "404: Not Found" "${t}_table.md"; then
+                    echo "Error: Invalid content in ${t}_table.md"
+                    exit 1
+                  fi
+                done
+
+            - name: Update Results
+              run: |
+                echo "# European Tech Opportunities" > README.md
+                echo "A collection of tech internships, new grads, research opportunities and more." >> README.md
+                echo "" >> README.md
+                echo "## Index" >> README.md
+                echo "💼🇪🇺 [European Internship Positions](#internship-positions) | [European ML-specific Internship Positions](#ml-internship-positions) | [European New Grad Positions](#new-grad-positions)  | [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)" >> README.md
+                echo "## Scraper" >> README.md
+                echo "[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)" >> README.md
+
+                declare -A headings=(
+                  [internships]="## Internship Positions"
+                  [ml]="## ML Internship Positions"
+                  [newgrads]="## New Grad Positions"
+                  [phd]="## PhD and PhD Internship Positions"
+                )
+                for t in internships ml newgrads phd; do
+                  echo "" >> README.md
+                  echo "${headings[$t]}" >> README.md
+                  cat "${t}_table.md" >> README.md
+                done
+
+                sed -i -E 's#(https://www\.linkedin\.com[^|]+)#[🔗](\1)|#g' README.md
+                rm internships_table.md newgrads_table.md phd_table.md ml_table.md
 
             - name: Commit and push if it changed
               run: |

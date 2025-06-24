@@ -65,4 +65,20 @@ export class JobsService {
       ...options,
     });
   }
+
+  /**
+   * Get Jobs Advanced
+   */
+  public static getJobsAdvanced<ThrowOnError extends boolean = false>(
+    options?: Options<JobsGetJobsData, ThrowOnError>,
+  ) {
+    return (options?.client ?? _heyApiClient).get<
+      JobsGetJobsResponses,
+      JobsGetJobsErrors,
+      ThrowOnError
+    >({
+      url: "/api/jobs/advanced",
+      ...options,
+    });
+  }
 }

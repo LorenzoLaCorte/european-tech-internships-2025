@@ -3,21 +3,33 @@ import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
 import { useQuery } from "@tanstack/react-query";
 
-export function useJobsQuery() {
-  const { page, limit, q } = Route.useSearch();
-  const queryKey = ["jobs", { page, limit, q }];
+export function useJobsQuery(advanced: boolean = false) {
+  const { page, limit, q, title, company, location, description } = Route.useSearch();
+  
+  const queryKey = advanced
+    ? ["advancedJobs", { page, limit, title, company, location, description }]
+    : ["jobs", { page, limit, q }];
 
   const result = useQuery<JobsGetJobsResponse>({
     queryKey,
     queryFn: async () => {
-      const response = await JobsService.getJobs({
-        query: { page, limit, search: q },
-        throwOnError: true,
-      });
-      return response.data as unknown as JobRead[];
+      // Basic Search
+      if (!advanced) {
+        const response = await JobsService.getJobs({
+          query: { page, limit, search: q },
+          throwOnError: true,
+        });
+        return response.data as unknown as JobRead[];
+      } 
+      // Advanced Search
+      else {
+        const response = await JobsService.getJobsAdvanced({
+          query: { page, limit, title, company, location, description },
+          throwOnError: true,
+        });
+        return response.data as unknown as JobRead[];
+      }
     },
-    // keepPreviousData: true,
-    // staleTime: 1000 * 60 * 2,
     suspense: true,
   });
 
@@ -25,6 +37,6 @@ export function useJobsQuery() {
     data: result.data || [],
     isLoading: result.isLoading,
     isError: result.isError,
-    hasMore: ((result.data as JobsGetJobsResponse) || []).length === limit, // simple “hasMore” check
+    hasMore: (result.data || []).length === limit,
   };
 }
