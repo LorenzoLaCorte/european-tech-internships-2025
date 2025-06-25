@@ -21,6 +21,7 @@ export function AdvancedSearchForm({
   const [descriptionTags, setDescriptionTags] = React.useState<Tag[]>(() =>
     search.description.map((t, i) => ({ id: String(i), text: t })),
   );
+  const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(null);
 
   React.useEffect(() => {
     setTitleTags(search.title.map((t, i) => ({ id: String(i), text: t })));
@@ -39,21 +40,29 @@ export function AdvancedSearchForm({
         tags={titleTags}
         setTags={setTitleTags}
         placeholder="Title keywords"
+        activeTagIndex={activeTagIndex}
+        setActiveTagIndex={setActiveTagIndex}
       />
       <TagInput
         tags={companyTags}
         setTags={setCompanyTags}
         placeholder="Company keywords"
+        activeTagIndex={activeTagIndex}
+        setActiveTagIndex={setActiveTagIndex}
       />
       <TagInput
         tags={locationTags}
         setTags={setLocationTags}
         placeholder="Location keywords"
+        activeTagIndex={activeTagIndex}
+        setActiveTagIndex={setActiveTagIndex}
       />
       <TagInput
         tags={descriptionTags}
         setTags={setDescriptionTags}
         placeholder="Description keywords"
+        activeTagIndex={activeTagIndex}
+        setActiveTagIndex={setActiveTagIndex}
       />
       <Button 
         variant="outline"
