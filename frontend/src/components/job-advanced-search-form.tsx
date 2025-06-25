@@ -42,6 +42,7 @@ export function AdvancedSearchForm({
         placeholder="Title keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
+        addTagsOnBlur
       />
       <TagInput
         tags={companyTags}
@@ -49,6 +50,7 @@ export function AdvancedSearchForm({
         placeholder="Company keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
+        addTagsOnBlur
       />
       <TagInput
         tags={locationTags}
@@ -56,6 +58,7 @@ export function AdvancedSearchForm({
         placeholder="Location keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
+        addTagsOnBlur
       />
       <TagInput
         tags={descriptionTags}
@@ -63,6 +66,7 @@ export function AdvancedSearchForm({
         placeholder="Description keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
+        addTagsOnBlur
       />
       <Button 
         variant="outline"
