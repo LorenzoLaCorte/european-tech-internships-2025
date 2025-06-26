@@ -13,14 +13,6 @@ import * as React from "react";
 import type { JobsGetJobsResponse } from "@/client";
 import { Button } from "@/components/ui/button";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -28,6 +20,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 /** Build a ColumnDef<T> array from a “sample” row’s keys */
 function makeColumns(
@@ -70,7 +70,13 @@ function makeColumns(
                 <>
                   <Dialog open={open} onOpenChange={setOpen}>
                     <DialogTrigger asChild>
-                      <Button variant="link" size="sm" className="px-1 h-auto text-xs align-baseline">Read more</Button>
+                      <Button
+                        variant="link"
+                        size="sm"
+                        className="px-1 h-auto text-xs align-baseline"
+                      >
+                        Read more
+                      </Button>
                     </DialogTrigger>
                     <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
                       <DialogHeader>

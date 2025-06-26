@@ -4,8 +4,9 @@ import { Route } from "@/routes/jobs";
 import { useQuery } from "@tanstack/react-query";
 
 export function useJobsQuery(advanced: boolean = false) {
-  const { page, limit, q, title, company, location, description } = Route.useSearch();
-  
+  const { page, limit, q, title, company, location, description } =
+    Route.useSearch();
+
   const queryKey = advanced
     ? ["advancedJobs", { page, limit, title, company, location, description }]
     : ["jobs", { page, limit, q }];
@@ -20,7 +21,7 @@ export function useJobsQuery(advanced: boolean = false) {
           throwOnError: true,
         });
         return response.data as unknown as JobRead[];
-      } 
+      }
       // Advanced Search
       else {
         const response = await JobsService.getJobsAdvanced({
