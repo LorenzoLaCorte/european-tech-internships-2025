@@ -1,0 +1,124 @@
+[project]
+name = "earlycareers"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[all]>=0.115.12",
+    "psycopg[binary]>=3.2.9",
+    "requests>=2.32.3",
+    "sqlalchemy>=2.0.41",
+    "sqlmodel>=0.0.24",
+]
+
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.4",
+    "ruff>=0.8.6",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+reportMissingImports = true
+reportMissingTypeStubs = false
+pythonVersion = "3.13"
+pythonPlatform = "All"
+include = [
+    "**/*.py"
+]
+exclude = [
+    ".ruff_cache",
+    ".pytest_cache",
+    "__pycache__",
+    "build",
+    "dist",
+]
+venvPath = "."
+venv = ".venv"
+
+
+[tool.ruff]
+target-version = "py313"
+fix = true
+line-length = 88
+indent-width = 4
+respect-gitignore = true
+
+[tool.ruff.lint]
+select = [
+    # flake8 defaults
+    "C", "E", "F", "W",
+    "B",     # flake8-bugbear
+    # "D",     # flake8-docstrings
+    "ANN",   # flake8-annotations
+    "Q",     # flake8-quotes
+    "ASYNC", # flake8-async
+    "BLE",   # flake8-blind-except
+    "FBT",   # flake8-boolean-trap
+    "S",     # flake8-bandit
+    "A",     # flake8-builtins
+    "COM",   # flake8-commas
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "T10",   # flake8-debugger
+    "EM",    # flake8-errmsg
+    "FA",    # flake8-future-annotations
+    "ISC",   # flake8-implicit-str-concat
+    "ICN",   # flake8-import-conventions
+    "G",     # flake8-logging-format
+    "PIE",   # flake8-pie
+    "T20",   # flake8-print
+    "PYI",   # flake8-pyi
+    "RSE",   # flake8-raise
+    "RET",   # flake8-return
+    "SLF",   # flake8-self
+    "SLOT",  # flake8-slot
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "TCH",   # flake8-type-checking
+    "INT",   # flake8-gettext
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib
+    "FIX",   # flake8-fixme
+    "C90",   # mccabe
+    "PGH",   # pygrep-hooks
+    "TRY",   # tryceratops
+    "FLY",   # flynt
+    "PERF",  # perflint
+    "RUF",   # ruf
+    "UP",    # pyupgrade
+    "I",     # isort
+    "N",     # pep8-naming
+]
+ignore = [
+    "EM102",   # f-string-exception
+    "TRY003",  # long-message-exception
+    "ISC001",  # single-line-implicit-string-concatenation
+    "COM812",  # missing-trailing-comma
+    "PGH003",  # type-ignore
+]
+fixable = ["ALL"]
+
+
+[tool.ruff.lint.pyupgrade]
+# preserve types, even if a file imports `from __future__ import annotations`.
+keep-runtime-typing = true
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 256
+
+[tool.ruff.format]
+docstring-code-format = true

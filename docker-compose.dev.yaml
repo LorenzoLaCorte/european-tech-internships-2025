@@ -1,0 +1,63 @@
+services:
+  earlycareers-backend:
+    container_name: earlycareers-backend
+    hostname: earlycareers-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    develop:
+      watch:
+        - path: ./backend/pyproject.toml
+          action: rebuild
+        - path: ./backend/Dockerfile.dev
+          action: rebuild
+        - path: ./backend
+          action: sync
+          target: /app
+          ignore:
+            - ./backend/.venv
+            - .venv
+    ports:
+      - "${LOCAL_BACKEND_PORT}:8000"
+    environment:
+      LOCAL_BACKEND_PORT: ${LOCAL_BACKEND_PORT?Variable not set}
+      DB_URI: ${DB_URI?Variable not set}
+      BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS?Variable not set}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/healthcheck/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  earlycareers-frontend:
+    container_name: earlycareers-frontend
+    hostname: earlycareers-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    develop:
+      watch:
+        - path: ./frontend/package.json
+          action: rebuild
+        - path: ./frontend/Dockerfile.dev
+          action: rebuild
+        - path: ./frontend
+          action: sync
+          target: /app
+          ignore:
+            - ./frontend/node_modules
+            - node_modules
+    ports:
+      - "${LOCAL_FRONTEND_PORT}:5173"
+    environment:
+      LOCAL_FRONTEND_PORT: ${LOCAL_FRONTEND_PORT?Variable not set}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL?Variable not set}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped

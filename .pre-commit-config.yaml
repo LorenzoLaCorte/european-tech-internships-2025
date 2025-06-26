@@ -1,0 +1,30 @@
+# see https://pre-commit.com for more information
+# see https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v5.0.0"
+    hooks:
+      - id: check-added-large-files
+      - id: check-yaml
+        args:
+          - --unsafe
+      - id: check-toml
+      - id: check-ast
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-case-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.8.4"
+    hooks:
+      - id: ruff
+        name: ruff-backend
+        args: [--fix, --config, backend/pyproject.toml]
+        exclude: ^(frontend/)
+      - id: ruff-format
+        name: ruff-backend-format
+        args: [--config, backend/pyproject.toml]
+        exclude: ^(frontend/)

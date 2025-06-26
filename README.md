@@ -1,12 +1,34 @@
+![Stars](https://img.shields.io/github/stars/LorenzoLaCorte/european-tech-internships-2025?style=social)
+
+![Open issues](https://img.shields.io/github/issues/LorenzoLaCorte/european-tech-internships-2025?color=9cf) ![Open pull requests](https://img.shields.io/github/issues-pr/LorenzoLaCorte/european-tech-internships-2025?color=9cf)
+<!-- ![License](https://img.shields.io/github/license/fabifont/jobpilot?color=blue) ![Latest release](https://img.shields.io/github/v/release/fabifont/jobpilot) -->
+
 # European Tech Opportunities
-A collection of tech internships, new grads, research opportunities and more.
+Curated and regularly updated collection of European tech internships, new graduate roles, and research opportunities. 
+Look for opportunities, and feel free to check out and contribute to our open-source platform, [EarlyCareers](https://earlycareers.fabifont.dev/), which aims to empower young tech talent across Europe!
 
 ## Index
-💼🇪🇺 [European Internship Positions](#internship-positions) | [European ML-specific Internship Positions](#ml-internship-positions) | [European New Grad Positions](#new-grad-positions)  | [European PhD and PhD Internship Positions](#phd-and-phd-internship-positions)
+
+<table>
+  <tr>
+    <td>💼 <b><a href="#internship-positions">Internship Positions</a></b></td>
+    <td>🤖 <b><a href="#ml-internship-positions">ML Internship Positions</a></b></td>
+  </tr>
+  <tr>
+    <td>🎓 <b><a href="#new-grad-positions">New Grad Positions</a></b></td>
+    <td>🔬 <b><a href="#phd-and-phd-internship-positions">PhD &amp; PhD Internship Positions</a></b></td>
+  </tr>
+</table>
+
+## 🛠️ Contributing
+Contributions to listings or to [**EarlyCareers**](https://earlycareers.fabifont.dev/) are very welcome! 
+Whether you're reporting bugs, enhancing documentation, or improving the code, every contribution helps.
+
 ## Scraper
-[Check out the scraper repository](https://github.com/LorenzoLaCorte/internship-scraper)
+[Check out the scraping library](https://github.com/fabifont/jobpilot)
 
 ## Internship Positions
+<!-- BEGIN INTERNSHIPS -->
 |company|title|location|link|
 |---|---|---|---|
 |amazon web services (aws)|2025 software development engineer intern - databases (m/w/d)|berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4145088413)||
@@ -44,8 +66,8 @@ A collection of tech internships, new grads, research opportunities and more.
 |skan|internship in innovative software development - intelligent desktop and cad solutions with c# / wpf|allschwil, basel-country, switzerland|[🔗](https://www.linkedin.com/jobs/view/4249169751)||
 |snowflake|software engineer intern - berlin (2025)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4205341606)||
 |taktile|software engineer working student/intern|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4205745296)||
-|yendou|intern/working student - software engineering (m/w/d)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4249130479)||
 ## ML Internship Positions
+<!-- BEGIN ML_INTERNSHIPS -->
 |company|title|location|link|
 |---|---|---|---|
 |adsmurai|paid media specialist intern - madrid (they/he/she)|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4244770085)||
@@ -67,11 +89,13 @@ A collection of tech internships, new grads, research opportunities and more.
 |oracle|intern as ai engineer - part time for student|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4184199303)||
 |smadex|machine learning intern|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4235555689)||
 ## New Grad Positions
+<!-- BEGIN NEWGRADS -->
 |company|title|location|link|
 |---|---|---|---|
 |dremio|software engineer - new grad (2025 graduate)|lisbon, lisbon, portugal|[🔗](https://www.linkedin.com/jobs/view/4246761749)||
-|sentry|software engineer, new grad (2025)|innere stadt, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4252024943)||
+<!-- END NEWGRADS -->
 ## PhD and PhD Internship Positions
+<!-- BEGIN PHDS -->
 |company|title|location|link|
 |---|---|---|---|
 |google|software engineer, borg, phd, early career|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4236246421)||
@@ -79,3 +103,4 @@ A collection of tech internships, new grads, research opportunities and more.
 |google|software engineer, early careers, phd, cloud ai|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4224658932)||
 |google|software engineer, early careers, phd, gsoc server software|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4242945273)||
 |google|software engineer, early careers, phd, xborg|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4231945561)||
+<!-- END PHDS -->
