@@ -3,19 +3,12 @@ import { Suspense } from "react";
 import { z } from "zod";
 
 import { DataTablePagination } from "@/components/data-table-pagination";
-import { JobSearchForm } from "@/components/job-search-form";
 import { AdvancedSearchForm } from "@/components/job-advanced-search-form";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { ChevronsUpDown } from "lucide-react"
-import { Button } from "@/components/ui/button";
+import { JobSearchForm } from "@/components/job-search-form";
 
 import { JobTable } from "@/components/job-table";
 import { JobTableSkeleton } from "@/components/job-table-skeleton";
-
+import { Switch } from "@/components/ui/switch";
 import { useJobsQuery } from "@/hooks/use-pagination";
 
 export const Route = createFileRoute("/jobs")({
@@ -27,6 +20,7 @@ export const Route = createFileRoute("/jobs")({
     company: z.array(z.string()).catch([]),
     location: z.array(z.string()).catch([]),
     description: z.array(z.string()).catch([]),
+    advanced: z.coerce.boolean().default(false),
   }),
   component: JobsPage,
 });
@@ -39,44 +33,75 @@ export type SearchValues = {
 };
 
 function JobsPage() {
-  const { limit } = Route.useSearch();
+  const search = Route.useSearch();
+  const { limit, advanced } = search;
   const navigate = Route.useNavigate();
 
   // When user searches, reset page back to 1
   const handleSearch = (val: string) =>
     navigate({
       to: ".",
-      search: { page: 1, limit, q: val },
+      search: {
+        ...search,
+        page: 1,
+        limit: limit,
+        q: val,
+        advanced: false,
+        title: [],
+        company: [],
+        location: [],
+        description: [],
+      },
       replace: true,
-  });
+    });
 
   const handleAdvancedSearch = (val: SearchValues) =>
     navigate({
       to: ".",
-      search: { page: 1, limit, ...val },
+      search: { ...search, page: 1, limit: limit, advanced: true, ...val },
       replace: true,
     });
 
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-4 p-4">
-      <JobSearchForm onSubmit={handleSearch} />
+      <div className="flex items-center gap-2">
+        <Switch
+          id="mode"
+          checked={advanced}
+          onCheckedChange={(checked) =>
+            navigate({
+              to: ".",
+              search: {
+                ...search,
+                advanced: checked,
+                q: "",
+                page: 1,
+                ...(checked
+                  ? {}
+                  : { title: [], company: [], location: [], description: [] }),
+              },
+              replace: true,
+            })
+          }
+        />
+        <label
+          htmlFor="mode"
+          className="text-sm font-semibold text-muted-foreground cursor-pointer"
+        >
+          {advanced ? "Advanced Search" : "Basic Search"}
+        </label>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        {advanced
+          ? "Specify keywords for title, company, location and description."
+          : "Search across title, company, location and description."}
+      </p>
 
-      <Collapsible>
-        <CollapsibleTrigger asChild>
-          <Button variant="ghost" size="icon" className="size-8">
-            <ChevronsUpDown />
-            <span className="sr-only">Toggle</span>
-          </Button>
-        </CollapsibleTrigger>
-        <span className="text-sm font-semibold text-muted-foreground">
-          Advanced Search
-        </span>
-        <CollapsibleContent className="mt-2">
-          <AdvancedSearchForm 
-            onSubmit={handleAdvancedSearch} 
-          />
-        </CollapsibleContent>
-      </Collapsible>
+      {advanced ? (
+        <AdvancedSearchForm onSubmit={handleAdvancedSearch} />
+      ) : (
+        <JobSearchForm onSubmit={handleSearch} />
+      )}
 
       {/* Only table + pagination will suspend */}
       <Suspense fallback={<JobTableSkeleton />}>

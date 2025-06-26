@@ -1,4 +1,4 @@
-import logo from '@/static/logo.png';
+import logo from "@/static/logo.png";
 
 export function Header() {
   return (

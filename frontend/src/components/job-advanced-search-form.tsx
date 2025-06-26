@@ -21,7 +21,9 @@ export function AdvancedSearchForm({
   const [descriptionTags, setDescriptionTags] = React.useState<Tag[]>(() =>
     search.description.map((t, i) => ({ id: String(i), text: t })),
   );
-  const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(null);
+  const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(
+    null,
+  );
 
   React.useEffect(() => {
     setTitleTags(search.title.map((t, i) => ({ id: String(i), text: t })));
@@ -68,16 +70,16 @@ export function AdvancedSearchForm({
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
       />
-      <Button 
+      <Button
         variant="outline"
         type="button"
         onClick={() =>
           onSubmit({
-          title: titleTags.map((t) => t.text),
-          company: companyTags.map((t) => t.text),
-          location: locationTags.map((t) => t.text),
-          description: descriptionTags.map((t) => t.text),
-        })
+            title: titleTags.map((t) => t.text),
+            company: companyTags.map((t) => t.text),
+            location: locationTags.map((t) => t.text),
+            description: descriptionTags.map((t) => t.text),
+          })
         }
       >
         Advanced Search
