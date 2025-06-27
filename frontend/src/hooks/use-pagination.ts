@@ -1,32 +1,31 @@
 import type { JobRead } from "@/client";
 import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
-import { type QueryKey, useQuery } from "@tanstack/react-query";
+import { type QueryKey, useSuspenseQuery } from "@tanstack/react-query";
 
+/**
+ * Query helper for both basic & advanced searches.
+ * Uses `useSuspenseQuery`, so `<Suspense>` boundaries work
+ * and `data` is always defined.
+ */
 export function useJobsQuery(isAdvanced = false) {
   const { page, limit, q, title, company, location, description } =
     Route.useSearch();
 
-  const queryKey: QueryKey = isAdvanced
-    ? [
-        "jobs",
-        "advanced",
-        { page, limit, title, company, location, description },
-      ]
-    : ["jobs", "basic", { page, limit, q }];
+  const queryKey: QueryKey = [
+    "jobs",
+    isAdvanced ? "advanced" : "basic",
+    { page, limit, q, title, company, location, description },
+  ];
 
   const {
-    data = [],
-    isLoading,
+    data, // JobRead[]
     isError,
-  } = useQuery<JobRead[], Error, JobRead[]>({
+    isFetching, // useful for small inline spinners
+  } = useSuspenseQuery<JobRead[], Error, JobRead[]>({
     queryKey,
-    // @ts-ignore
-    suspense: true,
-    keepPreviousData: true,
     staleTime: 60_000,
     retry: 1,
-    initialData: [] as JobRead[],
     queryFn: async () => {
       if (isAdvanced) {
         const { data } = await JobsService.getJobsAdvanced({
@@ -35,7 +34,6 @@ export function useJobsQuery(isAdvanced = false) {
         });
         return data;
       }
-
       const { data } = await JobsService.getJobs({
         query: { page, limit, search: q },
         throwOnError: true,
@@ -46,8 +44,8 @@ export function useJobsQuery(isAdvanced = false) {
 
   return {
     data,
-    isLoading,
     isError,
+    isFetching,
     hasMore: data.length === limit,
   };
 }

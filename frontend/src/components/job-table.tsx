@@ -29,7 +29,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-/** Build a ColumnDef<T> array from a “sample” row’s keys */
+function ariaSort(
+  state: false | "asc" | "desc",
+): "none" | "ascending" | "descending" {
+  if (state === "asc") return "ascending";
+  if (state === "desc") return "descending";
+  return "none";
+}
+
 function makeColumns(
   sample: JobsGetJobsResponse[number],
 ): ColumnDef<typeof sample>[] {
@@ -52,6 +59,7 @@ function makeColumns(
         ),
       };
     }
+
     if (key === "description") {
       return {
         accessorKey: "description",
@@ -71,16 +79,21 @@ function makeColumns(
           ) : (
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
-                {/* whole line clickable & underlined */}
                 <span className="cursor-pointer underline underline-offset-2">
                   {truncated}
                 </span>
               </DialogTrigger>
 
-              <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
+              <DialogContent
+                role="document"
+                className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto"
+              >
                 <DialogHeader>
                   <DialogTitle>Description</DialogTitle>
-                  <DialogDescription>{desc}</DialogDescription>
+                  <DialogDescription asChild>
+                    {/* asChild avoids <p> nested in <p> */}
+                    <div>{desc}</div>
+                  </DialogDescription>
                 </DialogHeader>
               </DialogContent>
             </Dialog>
@@ -103,6 +116,7 @@ function titleCase(s: string) {
     .replace(/_/g, " ")
     .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
+
 function SortBtn({
   column,
   title,
@@ -152,7 +166,10 @@ export function JobTable({ data }: { data: JobsGetJobsResponse }) {
           {table.getHeaderGroups().map((hg) => (
             <TableRow key={hg.id}>
               {hg.headers.map((h) => (
-                <TableHead key={h.id}>
+                <TableHead
+                  key={h.id}
+                  aria-sort={ariaSort(h.column.getIsSorted())}
+                >
                   {flexRender(h.column.columnDef.header, h.getContext())}
                 </TableHead>
               ))}

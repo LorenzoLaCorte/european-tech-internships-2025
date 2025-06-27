@@ -3,6 +3,12 @@ import { Route, type SearchValues } from "@/routes/jobs";
 import { type Tag, TagInput } from "emblor";
 import * as React from "react";
 
+const INLINE_TAG_STYLES = {
+  inlineTagsContainer: "flex-nowrap overflow-x-auto",
+  tagList: { container: "flex-nowrap order-last" },
+  input: "order-first flex-shrink-0",
+} as const;
+
 export function AdvancedSearchForm({
   onSubmit,
 }: {
@@ -35,7 +41,6 @@ export function AdvancedSearchForm({
     );
   }, [search]);
 
-  /* disable when every field is empty */
   const nothingEntered =
     !titleTags.length &&
     !companyTags.length &&
@@ -52,11 +57,7 @@ export function AdvancedSearchForm({
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
         inlineTags
-        styleClasses={{
-          inlineTagsContainer: "flex-nowrap overflow-x-auto",
-          tagList: { container: "flex-nowrap order-last" },
-          input: "order-first flex-shrink-0",
-        }}
+        styleClasses={INLINE_TAG_STYLES}
       />
 
       <TagInput
@@ -67,11 +68,7 @@ export function AdvancedSearchForm({
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
         inlineTags
-        styleClasses={{
-          inlineTagsContainer: "flex-nowrap overflow-x-auto",
-          tagList: { container: "flex-nowrap order-last" },
-          input: "order-first flex-shrink-0",
-        }}
+        styleClasses={INLINE_TAG_STYLES}
       />
 
       <TagInput
@@ -82,11 +79,7 @@ export function AdvancedSearchForm({
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
         inlineTags
-        styleClasses={{
-          inlineTagsContainer: "flex-nowrap overflow-x-auto",
-          tagList: { container: "flex-nowrap order-last" },
-          input: "order-first flex-shrink-0",
-        }}
+        styleClasses={INLINE_TAG_STYLES}
       />
 
       <TagInput
@@ -97,16 +90,13 @@ export function AdvancedSearchForm({
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
         inlineTags
-        styleClasses={{
-          inlineTagsContainer: "flex-nowrap overflow-x-auto",
-          tagList: { container: "flex-nowrap order-last" },
-          input: "order-first flex-shrink-0",
-        }}
+        styleClasses={INLINE_TAG_STYLES}
       />
 
       <Button
         className="sm:col-span-2"
         type="button"
+        disabled={nothingEntered}
         onClick={() =>
           onSubmit({
             title: titleTags.map((t) => t.text),
@@ -115,7 +105,6 @@ export function AdvancedSearchForm({
             description: descriptionTags.map((t) => t.text),
           })
         }
-        disabled={nothingEntered}
       >
         Advanced Search
       </Button>
