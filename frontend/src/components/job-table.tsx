@@ -7,6 +7,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import { ArrowDown, ArrowUp, ArrowUpRight, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
 
@@ -29,12 +30,41 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-function ariaSort(
-  state: false | "asc" | "desc",
-): "none" | "ascending" | "descending" {
-  if (state === "asc") return "ascending";
-  if (state === "desc") return "descending";
-  return "none";
+/* ───────── helpers ───────── */
+const titleCase = (s: string) =>
+  s
+    .replace(/_/g, " ")
+    .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
+
+const ariaSort = (
+  s: false | "asc" | "desc",
+): "none" | "ascending" | "descending" =>
+  s === "asc" ? "ascending" : s === "desc" ? "descending" : "none";
+
+function SortBtn({
+  column,
+  title,
+}: {
+  column: Column<JobsGetJobsResponse[number], unknown>;
+  title: string;
+}) {
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      className="-ml-3 h-8"
+      onClick={() => column.toggleSorting()}
+    >
+      {title}
+      {column.getIsSorted() === "desc" ? (
+        <ArrowDown className="ml-2 h-4 w-4" />
+      ) : column.getIsSorted() === "asc" ? (
+        <ArrowUp className="ml-2 h-4 w-4" />
+      ) : (
+        <ChevronsUpDown className="ml-2 h-4 w-4" />
+      )}
+    </Button>
+  );
 }
 
 function makeColumns(
@@ -91,7 +121,6 @@ function makeColumns(
                 <DialogHeader>
                   <DialogTitle>Description</DialogTitle>
                   <DialogDescription asChild>
-                    {/* asChild avoids <p> nested in <p> */}
                     <div>{desc}</div>
                   </DialogDescription>
                 </DialogHeader>
@@ -110,38 +139,7 @@ function makeColumns(
     };
   });
 }
-
-function titleCase(s: string) {
-  return s
-    .replace(/_/g, " ")
-    .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
-}
-
-function SortBtn({
-  column,
-  title,
-}: {
-  column: Column<JobsGetJobsResponse[number], unknown>;
-  title: string;
-}) {
-  return (
-    <Button
-      variant="ghost"
-      size="sm"
-      className="-ml-3 h-8"
-      onClick={() => column.toggleSorting()}
-    >
-      {title}
-      {column.getIsSorted() === "desc" ? (
-        <ArrowDown className="ml-2 h-4 w-4" />
-      ) : column.getIsSorted() === "asc" ? (
-        <ArrowUp className="ml-2 h-4 w-4" />
-      ) : (
-        <ChevronsUpDown className="ml-2 h-4 w-4" />
-      )}
-    </Button>
-  );
-}
+/* ─────────────────────────── */
 
 export function JobTable({ data }: { data: JobsGetJobsResponse }) {
   const columns = React.useMemo(
@@ -159,44 +157,87 @@ export function JobTable({ data }: { data: JobsGetJobsResponse }) {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  /* ―― virtualizer ―― */
+  const scrollParentRef = React.useRef<HTMLDivElement>(null);
+
+  const rowVirtualizer = useVirtualizer({
+    count: table.getRowModel().rows.length,
+    getScrollElement: () => scrollParentRef.current,
+    estimateSize: () => 48, // quick guess; real height measured below
+    overscan: 32, // smoother for track-pads
+    measureElement: (el) => el.getBoundingClientRect().height,
+  });
+
+  const virtualRows = rowVirtualizer.getVirtualItems();
+  const totalSize = rowVirtualizer.getTotalSize();
+  const paddingTop = virtualRows[0]?.start ?? 0;
+  const paddingBottom = totalSize - (virtualRows.at(-1)?.end ?? totalSize);
+  /* ―――――――――――――――― */
+
+  if (data.length === 0) {
+    return <div className="rounded-md border p-6 text-center">No results.</div>;
+  }
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((hg) => (
-            <TableRow key={hg.id}>
-              {hg.headers.map((h) => (
-                <TableHead
-                  key={h.id}
-                  aria-sort={ariaSort(h.column.getIsSorted())}
+    <div className="rounded-md border h-[70vh]">
+      <div
+        ref={scrollParentRef}
+        className="h-full overflow-auto will-change-transform contain-strict"
+      >
+        <Table className="min-w-full">
+          <TableHeader>
+            {table.getHeaderGroups().map((hg) => (
+              <TableRow key={hg.id}>
+                {hg.headers.map((h) => (
+                  <TableHead
+                    key={h.id}
+                    aria-sort={ariaSort(h.column.getIsSorted())}
+                  >
+                    {flexRender(h.column.columnDef.header, h.getContext())}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+
+          <TableBody>
+            {/* top spacer */}
+            {paddingTop > 0 && (
+              <TableRow style={{ height: paddingTop }}>
+                <TableCell colSpan={columns.length} />
+              </TableRow>
+            )}
+
+            {/* visible rows */}
+            {virtualRows.map((vr) => {
+              const row = table.getRowModel().rows[vr.index];
+              return (
+                <TableRow
+                  key={row.id}
+                  data-index={vr.index} /* 👈 required for measuring */
+                  ref={rowVirtualizer.measureElement}
                 >
-                  {flexRender(h.column.columnDef.header, h.getContext())}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              );
+            })}
 
-        <TableBody>
-          {table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-
-          {data.length === 0 && (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+            {/* bottom spacer */}
+            {paddingBottom > 0 && (
+              <TableRow style={{ height: paddingBottom }}>
+                <TableCell colSpan={columns.length} />
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
