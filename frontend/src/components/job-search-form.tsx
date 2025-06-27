@@ -5,35 +5,37 @@ import * as React from "react";
 
 export function JobSearchForm({
   onSubmit,
-}: {
-  onSubmit: (val: string) => void;
-}) {
-  // Read the current “q” from the URL
+}: { onSubmit: (val: string) => void }) {
   const { q } = Route.useSearch();
   const [term, setTerm] = React.useState(q);
 
   return (
-    <div className="flex w-full gap-2">
+    <form
+      className="flex w-full flex-col gap-2 sm:flex-row"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(term.trim());
+      }}
+    >
+      <label htmlFor="search" className="sr-only">
+        Search
+      </label>
       <Input
+        id="search"
         type="search"
-        name="q"
         placeholder="Search company, title…"
+        className="flex-1"
         value={term}
         onChange={(e) => setTerm(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            onSubmit(term.trim());
-          }
-        }}
       />
+
       <Button
-        variant="outline"
-        type="button"
-        onClick={() => onSubmit(term.trim())}
+        type="submit"
+        className="w-full sm:w-auto"
+        disabled={!term.trim()}
       >
         Search
       </Button>
-    </div>
+    </form>
   );
 }

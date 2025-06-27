@@ -9,39 +9,46 @@ export function AdvancedSearchForm({
   onSubmit: (val: SearchValues) => void;
 }) {
   const search = Route.useSearch();
+
   const [titleTags, setTitleTags] = React.useState<Tag[]>(() =>
-    search.title.map((t, i) => ({ id: String(i), text: t })),
+    search.title.map((t, i) => ({ id: i + "", text: t })),
   );
   const [companyTags, setCompanyTags] = React.useState<Tag[]>(() =>
-    search.company.map((t, i) => ({ id: String(i), text: t })),
+    search.company.map((t, i) => ({ id: i + "", text: t })),
   );
   const [locationTags, setLocationTags] = React.useState<Tag[]>(() =>
-    search.location.map((t, i) => ({ id: String(i), text: t })),
+    search.location.map((t, i) => ({ id: i + "", text: t })),
   );
   const [descriptionTags, setDescriptionTags] = React.useState<Tag[]>(() =>
-    search.description.map((t, i) => ({ id: String(i), text: t })),
+    search.description.map((t, i) => ({ id: i + "", text: t })),
   );
   const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(
     null,
   );
 
   React.useEffect(() => {
-    setTitleTags(search.title.map((t, i) => ({ id: String(i), text: t })));
-    setCompanyTags(search.company.map((t, i) => ({ id: String(i), text: t })));
-    setLocationTags(
-      search.location.map((t, i) => ({ id: String(i), text: t })),
-    );
+    setTitleTags(search.title.map((t, i) => ({ id: i + "", text: t })));
+    setCompanyTags(search.company.map((t, i) => ({ id: i + "", text: t })));
+    setLocationTags(search.location.map((t, i) => ({ id: i + "", text: t })));
     setDescriptionTags(
-      search.description.map((t, i) => ({ id: String(i), text: t })),
+      search.description.map((t, i) => ({ id: i + "", text: t })),
     );
   }, [search]);
 
+  /* disable when every field is empty */
+  const nothingEntered =
+    !titleTags.length &&
+    !companyTags.length &&
+    !locationTags.length &&
+    !descriptionTags.length;
+
   return (
-    <div className="flex flex-col gap-2">
+    <div className="grid gap-2 sm:grid-cols-2">
+      {/* four TagInputs – unchanged styling */}
       <TagInput
+        placeholder="Title keywords"
         tags={titleTags}
         setTags={setTitleTags}
-        placeholder="Title keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
@@ -52,10 +59,11 @@ export function AdvancedSearchForm({
           input: "order-first flex-shrink-0",
         }}
       />
+
       <TagInput
+        placeholder="Company keywords"
         tags={companyTags}
         setTags={setCompanyTags}
-        placeholder="Company keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
@@ -66,10 +74,11 @@ export function AdvancedSearchForm({
           input: "order-first flex-shrink-0",
         }}
       />
+
       <TagInput
+        placeholder="Location keywords"
         tags={locationTags}
         setTags={setLocationTags}
-        placeholder="Location keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
@@ -80,10 +89,11 @@ export function AdvancedSearchForm({
           input: "order-first flex-shrink-0",
         }}
       />
+
       <TagInput
+        placeholder="Description keywords"
         tags={descriptionTags}
         setTags={setDescriptionTags}
-        placeholder="Description keywords"
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
@@ -94,8 +104,9 @@ export function AdvancedSearchForm({
           input: "order-first flex-shrink-0",
         }}
       />
+
       <Button
-        variant="outline"
+        className="sm:col-span-2"
         type="button"
         onClick={() =>
           onSubmit({
@@ -105,6 +116,7 @@ export function AdvancedSearchForm({
             description: descriptionTags.map((t) => t.text),
           })
         }
+        disabled={nothingEntered}
       >
         Advanced Search
       </Button>

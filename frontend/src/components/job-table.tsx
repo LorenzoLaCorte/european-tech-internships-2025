@@ -60,34 +60,30 @@ function makeColumns(
         ),
         cell: ({ getValue }) => {
           const desc = String(getValue() ?? "");
-          const truncated = desc.length > 30 ? desc.slice(0, 30) + "..." : desc;
-          const [open, setOpen] = React.useState(false);
           if (!desc) return null;
-          return (
-            <>
-              <span>{truncated} </span>
-              {desc.length > 30 && (
-                <>
-                  <Dialog open={open} onOpenChange={setOpen}>
-                    <DialogTrigger asChild>
-                      <Button
-                        variant="link"
-                        size="sm"
-                        className="px-1 h-auto text-xs align-baseline"
-                      >
-                        Read more
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
-                      <DialogHeader>
-                        <DialogTitle>Description</DialogTitle>
-                        <DialogDescription>{desc}</DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  </Dialog>
-                </>
-              )}
-            </>
+
+          const truncated =
+            desc.length > 30 ? desc.slice(0, 30).trimEnd() + "…" : desc;
+          const [open, setOpen] = React.useState(false);
+
+          return desc.length <= 30 ? (
+            desc
+          ) : (
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                {/* whole line clickable & underlined */}
+                <span className="cursor-pointer underline underline-offset-2">
+                  {truncated}
+                </span>
+              </DialogTrigger>
+
+              <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
+                <DialogHeader>
+                  <DialogTitle>Description</DialogTitle>
+                  <DialogDescription>{desc}</DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           );
         },
       };
