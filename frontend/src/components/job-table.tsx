@@ -1,15 +1,15 @@
 import {
   type Column,
   type ColumnDef,
-  type SortingState,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
+  type SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ArrowUpRight, ChevronsUpDown } from "lucide-react";
+import type { FC } from "react";
 import * as React from "react";
-
 import type { JobsGetJobsResponse } from "@/client";
 import { Button } from "@/components/ui/button";
 import {
@@ -36,6 +36,40 @@ function ariaSort(
   if (state === "desc") return "descending";
   return "none";
 }
+
+/** Isolated component so hook order stays consistent */
+const DescriptionCell: FC<{ desc: string }> = ({ desc }) => {
+  // Hook always executes, even when `desc` is empty
+  const [open, setOpen] = React.useState(false);
+
+  if (!desc) return null; // Early-return *after* the hook call
+
+  const truncated = desc.length > 30 ? `${desc.slice(0, 30).trimEnd()}…` : desc;
+
+  return desc.length <= 30 ? (
+    <>{desc}</>
+  ) : (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <span className="cursor-pointer underline underline-offset-2">
+          {truncated}
+        </span>
+      </DialogTrigger>
+
+      <DialogContent
+        role="document"
+        className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto"
+      >
+        <DialogHeader>
+          <DialogTitle>Description</DialogTitle>
+          <DialogDescription asChild>
+            <div>{desc}</div>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
+};
 
 function makeColumns(
   sample: JobsGetJobsResponse[number],
@@ -66,39 +100,7 @@ function makeColumns(
         header: ({ column }) => (
           <SortBtn column={column} title={titleCase(key)} />
         ),
-        cell: ({ getValue }) => {
-          const desc = String(getValue() ?? "");
-          if (!desc) return null;
-
-          const truncated =
-            desc.length > 30 ? `${desc.slice(0, 30).trimEnd()}…` : desc;
-          const [open, setOpen] = React.useState(false);
-
-          return desc.length <= 30 ? (
-            desc
-          ) : (
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <span className="cursor-pointer underline underline-offset-2">
-                  {truncated}
-                </span>
-              </DialogTrigger>
-
-              <DialogContent
-                role="document"
-                className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto"
-              >
-                <DialogHeader>
-                  <DialogTitle>Description</DialogTitle>
-                  <DialogDescription asChild>
-                    {/* asChild avoids <p> nested in <p> */}
-                    <div>{desc}</div>
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
-          );
-        },
+        cell: ({ getValue }) => <DescriptionCell desc={String(getValue())} />,
       };
     }
 

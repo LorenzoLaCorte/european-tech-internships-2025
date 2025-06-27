@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -7,7 +8,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Route } from "@/routes/jobs";
-import React from "react";
 
 interface DataTablePaginationProps {
   pageSize: number;

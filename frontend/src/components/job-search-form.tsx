@@ -1,11 +1,13 @@
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Route } from "@/routes/jobs";
-import * as React from "react";
 
 export function JobSearchForm({
   onSubmit,
-}: { onSubmit: (val: string) => void }) {
+}: {
+  onSubmit: (val: string) => void;
+}) {
   const { q } = Route.useSearch();
   const [term, setTerm] = React.useState(q);
 

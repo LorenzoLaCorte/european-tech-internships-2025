@@ -1,7 +1,7 @@
+import { type QueryKey, useSuspenseQuery } from "@tanstack/react-query";
 import type { JobRead } from "@/client";
 import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
-import { type QueryKey, useSuspenseQuery } from "@tanstack/react-query";
 
 export function useJobsQuery() {
   const { page, limit, q, title, company, location, description, advanced } =

@@ -7,7 +7,7 @@ export type HttpValidationError = {
   /**
    * Detail
    */
-  detail?: Array<ValidationError>;
+  detail?: ValidationError[];
 };
 
 /**
@@ -122,7 +122,7 @@ export type JobsGetJobsResponses = {
    * Response Jobs-Get Jobs
    * Successful Response
    */
-  200: Array<JobRead>;
+  200: JobRead[];
 };
 
 export type JobsGetJobsResponse =
@@ -143,19 +143,19 @@ export type JobsGetJobsAdvancedData = {
     /**
      * Title
      */
-    title?: Array<string>;
+    title?: string[];
     /**
      * Company
      */
-    company?: Array<string>;
+    company?: string[];
     /**
      * Location
      */
-    location?: Array<string>;
+    location?: string[];
     /**
      * Description
      */
-    description?: Array<string>;
+    description?: string[];
   };
   url: "/api/jobs/advanced";
 };
@@ -175,7 +175,7 @@ export type JobsGetJobsAdvancedResponses = {
    * Response Jobs-Get Jobs Advanced
    * Successful Response
    */
-  200: Array<JobRead>;
+  200: JobRead[];
 };
 
 export type JobsGetJobsAdvancedResponse =

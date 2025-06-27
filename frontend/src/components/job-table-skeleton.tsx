@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
@@ -7,7 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useMemo } from "react";
 
 export function JobTableSkeleton({
   cols = 8,

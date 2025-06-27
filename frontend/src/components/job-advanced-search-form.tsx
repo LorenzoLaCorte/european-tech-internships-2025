@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Route, type SearchValues } from "@/routes/jobs";
 import { type Tag, TagInput } from "emblor";
 import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Route, type SearchValues } from "@/routes/jobs";
 
 const FIELDS = ["title", "company", "location", "description"] as const;
 type Field = (typeof FIELDS)[number];
