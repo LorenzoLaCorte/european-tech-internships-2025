@@ -44,7 +44,7 @@ export function DataTablePagination({
   return (
     <nav
       aria-label="Table pagination"
-      className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+      className="flex flex-row flex-wrap items-center justify-between gap-4 py-4"
     >
       {/* rows-per-page */}
       <div className="flex flex-wrap items-center gap-2">
@@ -74,7 +74,7 @@ export function DataTablePagination({
           onClick={() => updateSearch(Math.max(1, page - 1), limit)}
           disabled={page === 1}
         >
-          ‹ Prev
+          ‹
         </Button>
 
         <input
@@ -94,7 +94,7 @@ export function DataTablePagination({
           onClick={() => updateSearch(page + 1, limit)}
           disabled={!hasMore}
         >
-          Next ›
+          ›
         </Button>
       </div>
     </nav>
