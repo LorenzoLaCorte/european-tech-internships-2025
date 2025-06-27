@@ -58,12 +58,14 @@ const DescriptionCell: FC<{ desc: string }> = ({ desc }) => {
 
       <DialogContent
         role="document"
-        className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto"
+        className="max-h-[90vh] sm:max-h-[80vh] w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] sm:max-w-none overflow-auto"
       >
         <DialogHeader>
           <DialogTitle>Description</DialogTitle>
           <DialogDescription asChild>
-            <div>{desc}</div>
+            <div className="mt-4 leading-relaxed whitespace-pre-wrap">
+              {desc}
+            </div>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
