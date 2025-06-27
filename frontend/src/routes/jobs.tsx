@@ -112,15 +112,7 @@ function JobsPage() {
 
 function JobsTableContainer() {
   const search = Route.useSearch();
-
-  const advancedSearchActive = [
-    search.title,
-    search.company,
-    search.location,
-    search.description,
-  ].some((fields) => fields.length > 0);
-
-  const { data, hasMore } = useJobsQuery(advancedSearchActive);
+  const { data, hasMore } = useJobsQuery();
 
   return (
     <>
