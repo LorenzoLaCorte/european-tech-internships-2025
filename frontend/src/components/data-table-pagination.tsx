@@ -18,13 +18,14 @@ export function DataTablePagination({
   pageSize,
   hasMore,
 }: DataTablePaginationProps) {
-  const { page, limit, q } = Route.useSearch();
+  const search = Route.useSearch();
+  const { page, limit } = search;
   const navigate = Route.useNavigate();
 
   const updateSearch = (newPage: number, newLimit: number) =>
     navigate({
       to: ".",
-      search: { page: newPage, limit: newLimit, q },
+      search: { ...search, page: newPage, limit: newLimit },
       replace: true,
     });
 
