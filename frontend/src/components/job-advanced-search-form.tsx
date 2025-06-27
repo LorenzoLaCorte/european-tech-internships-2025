@@ -45,6 +45,12 @@ export function AdvancedSearchForm({
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
+        inlineTags
+        styleClasses={{
+          inlineTagsContainer: "flex-nowrap overflow-x-auto",
+          tagList: { container: "flex-nowrap order-last" },
+          input: "order-first flex-shrink-0",
+        }}
       />
       <TagInput
         tags={companyTags}
@@ -53,6 +59,12 @@ export function AdvancedSearchForm({
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
+        inlineTags
+        styleClasses={{
+          inlineTagsContainer: "flex-nowrap overflow-x-auto",
+          tagList: { container: "flex-nowrap order-last" },
+          input: "order-first flex-shrink-0",
+        }}
       />
       <TagInput
         tags={locationTags}
@@ -61,6 +73,12 @@ export function AdvancedSearchForm({
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
+        inlineTags
+        styleClasses={{
+          inlineTagsContainer: "flex-nowrap overflow-x-auto",
+          tagList: { container: "flex-nowrap order-last" },
+          input: "order-first flex-shrink-0",
+        }}
       />
       <TagInput
         tags={descriptionTags}
@@ -69,6 +87,12 @@ export function AdvancedSearchForm({
         activeTagIndex={activeTagIndex}
         setActiveTagIndex={setActiveTagIndex}
         addTagsOnBlur
+        inlineTags
+        styleClasses={{
+          inlineTagsContainer: "flex-nowrap overflow-x-auto",
+          tagList: { container: "flex-nowrap order-last" },
+          input: "order-first flex-shrink-0",
+        }}
       />
       <Button
         variant="outline"

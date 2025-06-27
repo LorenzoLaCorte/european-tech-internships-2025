@@ -119,7 +119,7 @@ function SortBtn({
       variant="ghost"
       size="sm"
       className="-ml-3 h-8"
-      onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      onClick={() => column.toggleSorting()}
     >
       {title}
       {column.getIsSorted() === "desc" ? (
