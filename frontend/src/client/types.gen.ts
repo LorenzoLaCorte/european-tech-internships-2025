@@ -128,6 +128,59 @@ export type JobsGetJobsResponses = {
 export type JobsGetJobsResponse =
   JobsGetJobsResponses[keyof JobsGetJobsResponses];
 
+export type JobsGetJobsAdvancedData = {
+  body?: never;
+  path?: never;
+  query?: {
+    /**
+     * Page
+     */
+    page?: number;
+    /**
+     * Limit
+     */
+    limit?: number;
+    /**
+     * Title
+     */
+    title?: Array<string>;
+    /**
+     * Company
+     */
+    company?: Array<string>;
+    /**
+     * Location
+     */
+    location?: Array<string>;
+    /**
+     * Description
+     */
+    description?: Array<string>;
+  };
+  url: "/api/jobs/advanced";
+};
+
+export type JobsGetJobsAdvancedErrors = {
+  /**
+   * Validation Error
+   */
+  422: HttpValidationError;
+};
+
+export type JobsGetJobsAdvancedError =
+  JobsGetJobsAdvancedErrors[keyof JobsGetJobsAdvancedErrors];
+
+export type JobsGetJobsAdvancedResponses = {
+  /**
+   * Response Jobs-Get Jobs Advanced
+   * Successful Response
+   */
+  200: Array<JobRead>;
+};
+
+export type JobsGetJobsAdvancedResponse =
+  JobsGetJobsAdvancedResponses[keyof JobsGetJobsAdvancedResponses];
+
 export type ClientOptions = {
   baseUrl: `${string}://${string}` | (string & {});
 };

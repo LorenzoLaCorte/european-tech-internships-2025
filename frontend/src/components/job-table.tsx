@@ -63,7 +63,7 @@ function makeColumns(
           if (!desc) return null;
 
           const truncated =
-            desc.length > 30 ? desc.slice(0, 30).trimEnd() + "…" : desc;
+            desc.length > 30 ? `${desc.slice(0, 30).trimEnd()}…` : desc;
           const [open, setOpen] = React.useState(false);
 
           return desc.length <= 30 ? (

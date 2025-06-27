@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/table";
 import { useMemo } from "react";
 
-/** Loading skeleton for JobTable – deterministic keys (index) avoid crypto dependency */
 export function JobTableSkeleton({
   cols = 8,
   rows = 8,

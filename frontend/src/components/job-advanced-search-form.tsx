@@ -11,27 +11,27 @@ export function AdvancedSearchForm({
   const search = Route.useSearch();
 
   const [titleTags, setTitleTags] = React.useState<Tag[]>(() =>
-    search.title.map((t, i) => ({ id: i + "", text: t })),
+    search.title.map((t, i) => ({ id: `${i}`, text: t })),
   );
   const [companyTags, setCompanyTags] = React.useState<Tag[]>(() =>
-    search.company.map((t, i) => ({ id: i + "", text: t })),
+    search.company.map((t, i) => ({ id: `${i}`, text: t })),
   );
   const [locationTags, setLocationTags] = React.useState<Tag[]>(() =>
-    search.location.map((t, i) => ({ id: i + "", text: t })),
+    search.location.map((t, i) => ({ id: `${i}`, text: t })),
   );
   const [descriptionTags, setDescriptionTags] = React.useState<Tag[]>(() =>
-    search.description.map((t, i) => ({ id: i + "", text: t })),
+    search.description.map((t, i) => ({ id: `${i}`, text: t })),
   );
   const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(
     null,
   );
 
   React.useEffect(() => {
-    setTitleTags(search.title.map((t, i) => ({ id: i + "", text: t })));
-    setCompanyTags(search.company.map((t, i) => ({ id: i + "", text: t })));
-    setLocationTags(search.location.map((t, i) => ({ id: i + "", text: t })));
+    setTitleTags(search.title.map((t, i) => ({ id: `${i}`, text: t })));
+    setCompanyTags(search.company.map((t, i) => ({ id: `${i}`, text: t })));
+    setLocationTags(search.location.map((t, i) => ({ id: `${i}`, text: t })));
     setDescriptionTags(
-      search.description.map((t, i) => ({ id: i + "", text: t })),
+      search.description.map((t, i) => ({ id: `${i}`, text: t })),
     );
   }, [search]);
 
@@ -44,7 +44,6 @@ export function AdvancedSearchForm({
 
   return (
     <div className="grid gap-2 sm:grid-cols-2">
-      {/* four TagInputs – unchanged styling */}
       <TagInput
         placeholder="Title keywords"
         tags={titleTags}

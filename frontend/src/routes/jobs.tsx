@@ -37,7 +37,6 @@ function JobsPage() {
   const { limit, advanced } = search;
   const navigate = Route.useNavigate();
 
-  /* Reset page on (advanced/)search */
   const handleSearch = (val: string) =>
     navigate({
       to: ".",
@@ -64,7 +63,6 @@ function JobsPage() {
 
   return (
     <section className="mx-auto w-full max-w-screen-2xl flex flex-col gap-4 p-4 sm:px-6 lg:px-8">
-      {/* Mode toggle */}
       <div className="flex flex-wrap items-center gap-2">
         <Switch
           id="mode"
@@ -105,7 +103,6 @@ function JobsPage() {
         <JobSearchForm onSubmit={handleSearch} />
       )}
 
-      {/* Table + pagination */}
       <Suspense fallback={<JobTableSkeleton />}>
         <JobsTableContainer />
       </Suspense>

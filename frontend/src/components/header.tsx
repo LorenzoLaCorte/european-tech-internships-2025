@@ -1,6 +1,5 @@
 import logo from "@/static/logo.png";
 
-/** Simple centered header – responsive padding + container keeps logo off edges */
 export function Header() {
   return (
     <header className="w-full border-b bg-white py-4 dark:bg-slate-950">

@@ -7,6 +7,9 @@ import type {
 } from "@hey-api/client-fetch";
 import { client as _heyApiClient } from "./client.gen";
 import type {
+  JobsGetJobsAdvancedData,
+  JobsGetJobsAdvancedErrors,
+  JobsGetJobsAdvancedResponses,
   JobsGetJobsData,
   JobsGetJobsErrors,
   JobsGetJobsResponses,
@@ -70,11 +73,11 @@ export class JobsService {
    * Get Jobs Advanced
    */
   public static getJobsAdvanced<ThrowOnError extends boolean = false>(
-    options?: Options<JobsGetJobsData, ThrowOnError>,
+    options?: Options<JobsGetJobsAdvancedData, ThrowOnError>,
   ) {
     return (options?.client ?? _heyApiClient).get<
-      JobsGetJobsResponses,
-      JobsGetJobsErrors,
+      JobsGetJobsAdvancedResponses,
+      JobsGetJobsAdvancedErrors,
       ThrowOnError
     >({
       url: "/api/jobs/advanced",

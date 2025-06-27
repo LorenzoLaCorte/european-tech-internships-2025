@@ -1,14 +1,13 @@
-import type { JobRead, JobsGetJobsResponse } from "@/client";
+import type { JobRead } from "@/client";
 import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
-import { useQuery } from "@tanstack/react-query";
+import { type QueryKey, useQuery } from "@tanstack/react-query";
 
-/** Single hook for basic & advanced job queries – now with keepPreviousData + sensible staleTime */
-export function useJobsQuery(isAdvanced: boolean = false) {
+export function useJobsQuery(isAdvanced = false) {
   const { page, limit, q, title, company, location, description } =
     Route.useSearch();
 
-  const queryKey = isAdvanced
+  const queryKey: QueryKey = isAdvanced
     ? [
         "jobs",
         "advanced",
@@ -16,32 +15,39 @@ export function useJobsQuery(isAdvanced: boolean = false) {
       ]
     : ["jobs", "basic", { page, limit, q }];
 
-  const result = useQuery<JobsGetJobsResponse>({
+  const {
+    data = [],
+    isLoading,
+    isError,
+  } = useQuery<JobRead[], Error, JobRead[]>({
     queryKey,
+    // @ts-ignore
+    suspense: true,
+    keepPreviousData: true,
+    staleTime: 60_000,
+    retry: 1,
+    initialData: [] as JobRead[],
     queryFn: async () => {
       if (isAdvanced) {
         const { data } = await JobsService.getJobsAdvanced({
           query: { page, limit, title, company, location, description },
           throwOnError: true,
         });
-        return data as unknown as JobRead[];
+        return data;
       }
+
       const { data } = await JobsService.getJobs({
         query: { page, limit, search: q },
         throwOnError: true,
       });
-      return data as unknown as JobRead[];
+      return data;
     },
-    suspense: true,
-    keepPreviousData: true,
-    staleTime: 60_000, // 1 min
-    retry: 1,
   });
 
   return {
-    data: result.data ?? [],
-    isLoading: result.isLoading,
-    isError: result.isError,
-    hasMore: (result.data ?? []).length === limit,
+    data,
+    isLoading,
+    isError,
+    hasMore: data.length === limit,
   };
 }
