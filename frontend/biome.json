@@ -1,36 +1,46 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
   "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-  "files": { "ignoreUnknown": false, "ignore": ["node_modules"] },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/src/client",
+      "!**/src/routeTree.gen.ts"
+    ]
+  },
   "formatter": { "enabled": true, "indentStyle": "space", "indentWidth": 2 },
-  "organizeImports": { "enabled": true },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": false,
-      "a11y": { "noBlankTarget": "error" },
+      "a11y": {},
       "correctness": {
         "noChildrenProp": "error",
         "useJsxKeyInIterable": "error",
         "noUnusedImports": "error"
       },
-      "security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
+      "security": {
+        "noDangerouslySetInnerHtmlWithChildren": "error",
+        "noBlankTarget": "error"
+      },
       "suspicious": { "noCommentText": "error", "noDuplicateJsxProps": "error" }
     },
-    "ignore": ["dist"]
+    "includes": ["**", "!**/dist"]
   },
   "json": { "parser": { "allowComments": true } },
   "javascript": { "formatter": { "quoteStyle": "double" }, "globals": [] },
   "overrides": [
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
             "noExtraBooleanCast": "error",
-            "noMultipleSpacesInRegularExpressionLiterals": "error",
             "noUselessCatch": "error",
-            "noWith": "error"
+            "noAdjacentSpacesInRegex": "error"
           },
           "correctness": {
             "noConstAssign": "error",
@@ -55,7 +65,8 @@
             "noUnusedVariables": "error",
             "useIsNan": "error",
             "useValidForDirection": "error",
-            "useYield": "error"
+            "useYield": "error",
+            "useValidTypeof": "error"
           },
           "suspicious": {
             "noAssignInExpressions": "error",
@@ -81,14 +92,14 @@
             "noSparseArray": "error",
             "noUnsafeNegation": "error",
             "useGetterReturn": "error",
-            "useValidTypeof": "error"
+            "noWith": "error"
           }
         }
       }
     },
-    { "include": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
+    { "includes": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "correctness": {
@@ -96,15 +107,12 @@
             "noGlobalObjectCalls": "off",
             "noInvalidBuiltinInstantiation": "off",
             "noInvalidConstructorSuper": "off",
-            "noNewSymbol": "off",
             "noSetterReturn": "off",
             "noUndeclaredVariables": "off",
             "noUnreachable": "off",
             "noUnreachableSuper": "off"
           },
           "style": {
-            "noArguments": "error",
-            "noVar": "error",
             "useConst": "error"
           },
           "suspicious": {
@@ -116,13 +124,17 @@
             "noImportAssign": "off",
             "noRedeclare": "off",
             "noUnsafeNegation": "off",
-            "useGetterReturn": "off"
+            "useGetterReturn": "off",
+            "noVar": "error"
+          },
+          "complexity": {
+            "noArguments": "error"
           }
         }
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -130,10 +142,13 @@
             "noUselessTypeConstraint": "error"
           },
           "correctness": {
-            "noUnusedVariables": "error",
+            "noUnusedVariables": "error"
+          },
+          "style": {
+            "noNamespace": "error",
+            "useAsConstAssertion": "error",
             "useArrayLiterals": "off"
           },
-          "style": { "noNamespace": "error", "useAsConstAssertion": "error" },
           "suspicious": {
             "noExplicitAny": "error",
             "noExtraNonNullAssertion": "error",
@@ -145,7 +160,7 @@
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "javascript": {
         "globals": [
           "onscrollend",
@@ -284,14 +299,13 @@
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
             "noExtraBooleanCast": "error",
-            "noMultipleSpacesInRegularExpressionLiterals": "error",
             "noUselessCatch": "error",
-            "noWith": "error"
+            "noAdjacentSpacesInRegex": "error"
           },
           "correctness": {
             "noConstAssign": "error",
@@ -316,7 +330,8 @@
             "noUnusedVariables": "error",
             "useIsNan": "error",
             "useValidForDirection": "error",
-            "useYield": "error"
+            "useYield": "error",
+            "useValidTypeof": "error"
           },
           "suspicious": {
             "noAssignInExpressions": "error",
@@ -342,14 +357,14 @@
             "noSparseArray": "error",
             "noUnsafeNegation": "error",
             "useGetterReturn": "error",
-            "useValidTypeof": "error"
+            "noWith": "error"
           }
         }
       }
     },
-    { "include": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
+    { "includes": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "correctness": {
@@ -357,15 +372,12 @@
             "noGlobalObjectCalls": "off",
             "noInvalidBuiltinInstantiation": "off",
             "noInvalidConstructorSuper": "off",
-            "noNewSymbol": "off",
             "noSetterReturn": "off",
             "noUndeclaredVariables": "off",
             "noUnreachable": "off",
             "noUnreachableSuper": "off"
           },
           "style": {
-            "noArguments": "error",
-            "noVar": "error",
             "useConst": "error"
           },
           "suspicious": {
@@ -377,13 +389,17 @@
             "noImportAssign": "off",
             "noRedeclare": "off",
             "noUnsafeNegation": "off",
-            "useGetterReturn": "off"
+            "useGetterReturn": "off",
+            "noVar": "error"
+          },
+          "complexity": {
+            "noArguments": "error"
           }
         }
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -391,13 +407,13 @@
             "noUselessTypeConstraint": "error"
           },
           "correctness": {
-            "noUnusedVariables": "error",
-            "useArrayLiterals": "off"
+            "noUnusedVariables": "error"
           },
           "style": {
             "noNamespace": "error",
             "useAsConstAssertion": "error",
-            "useThrowOnlyError": "error"
+            "useThrowOnlyError": "error",
+            "useArrayLiterals": "off"
           },
           "suspicious": {
             "noExplicitAny": "error",
@@ -410,9 +426,9 @@
         }
       }
     },
-    { "include": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
+    { "includes": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "correctness": {
@@ -420,15 +436,12 @@
             "noGlobalObjectCalls": "off",
             "noInvalidBuiltinInstantiation": "off",
             "noInvalidConstructorSuper": "off",
-            "noNewSymbol": "off",
             "noSetterReturn": "off",
             "noUndeclaredVariables": "off",
             "noUnreachable": "off",
             "noUnreachableSuper": "off"
           },
           "style": {
-            "noArguments": "error",
-            "noVar": "error",
             "useConst": "error"
           },
           "suspicious": {
@@ -440,13 +453,17 @@
             "noImportAssign": "off",
             "noRedeclare": "off",
             "noUnsafeNegation": "off",
-            "useGetterReturn": "off"
+            "useGetterReturn": "off",
+            "noVar": "error"
+          },
+          "complexity": {
+            "noArguments": "error"
           }
         }
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
           "complexity": {
@@ -464,7 +481,7 @@
       }
     },
     {
-      "include": ["**/*.{ts,tsx}"],
+      "includes": ["**/*.{ts,tsx}"],
       "javascript": {
         "globals": [
           "onscrollend",

@@ -7,7 +7,7 @@ export type HttpValidationError = {
   /**
    * Detail
    */
-  detail?: Array<ValidationError>;
+  detail?: ValidationError[];
 };
 
 /**
@@ -122,11 +122,64 @@ export type JobsGetJobsResponses = {
    * Response Jobs-Get Jobs
    * Successful Response
    */
-  200: Array<JobRead>;
+  200: JobRead[];
 };
 
 export type JobsGetJobsResponse =
   JobsGetJobsResponses[keyof JobsGetJobsResponses];
+
+export type JobsGetJobsAdvancedData = {
+  body?: never;
+  path?: never;
+  query?: {
+    /**
+     * Page
+     */
+    page?: number;
+    /**
+     * Limit
+     */
+    limit?: number;
+    /**
+     * Title
+     */
+    title?: string[];
+    /**
+     * Company
+     */
+    company?: string[];
+    /**
+     * Location
+     */
+    location?: string[];
+    /**
+     * Description
+     */
+    description?: string[];
+  };
+  url: "/api/jobs/advanced";
+};
+
+export type JobsGetJobsAdvancedErrors = {
+  /**
+   * Validation Error
+   */
+  422: HttpValidationError;
+};
+
+export type JobsGetJobsAdvancedError =
+  JobsGetJobsAdvancedErrors[keyof JobsGetJobsAdvancedErrors];
+
+export type JobsGetJobsAdvancedResponses = {
+  /**
+   * Response Jobs-Get Jobs Advanced
+   * Successful Response
+   */
+  200: JobRead[];
+};
+
+export type JobsGetJobsAdvancedResponse =
+  JobsGetJobsAdvancedResponses[keyof JobsGetJobsAdvancedResponses];
 
 export type ClientOptions = {
   baseUrl: `${string}://${string}` | (string & {});

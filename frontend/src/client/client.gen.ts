@@ -2,10 +2,10 @@
 
 import {
   type Config,
-  type ClientOptions as DefaultClientOptions,
   createClient,
   createConfig,
-} from "@hey-api/client-fetch";
+  type ClientOptions as DefaultClientOptions,
+} from "./client";
 import type { ClientOptions } from "./types.gen";
 
 /**

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
@@ -7,40 +8,34 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useMemo } from "react";
 
 export function JobTableSkeleton({
   cols = 8,
   rows = 8,
-}: { cols?: number; rows?: number }) {
-  // Prepare two arrays of UUIDs so we avoid using numeric indexes as keys
-  const colKeys = useMemo(
-    () => Array.from({ length: cols }).map(() => crypto.randomUUID()),
-    [cols],
-  );
-  const rowKeys = useMemo(
-    () => Array.from({ length: rows }).map(() => crypto.randomUUID()),
-    [rows],
-  );
+}: {
+  cols?: number;
+  rows?: number;
+}) {
+  const colIdx = useMemo(() => [...Array(cols).keys()], [cols]);
+  const rowIdx = useMemo(() => [...Array(rows).keys()], [rows]);
 
   return (
-    <div className="rounded-md border animate-pulse">
+    <div className="animate-pulse rounded-md border">
       <Table>
         <TableHeader>
           <TableRow>
-            {colKeys.map((colId) => (
-              <TableHead key={colId}>
+            {colIdx.map((c) => (
+              <TableHead key={c}>
                 <Skeleton className="h-4 w-24" />
               </TableHead>
             ))}
           </TableRow>
         </TableHeader>
-
         <TableBody>
-          {rowKeys.map((rowId) => (
-            <TableRow key={rowId}>
-              {colKeys.map((colId) => (
-                <TableCell key={`${rowId}-${colId}`}>
+          {rowIdx.map((r) => (
+            <TableRow key={r}>
+              {colIdx.map((c) => (
+                <TableCell key={c}>
                   <Skeleton className="h-4 w-full" />
                 </TableCell>
               ))}
