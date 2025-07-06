@@ -1,43 +1,47 @@
-import type { JobRead, JobsGetJobsResponse } from "@/client";
+import { type QueryKey, useSuspenseQuery } from "@tanstack/react-query";
+import type { JobRead } from "@/client";
 import { JobsService } from "@/client/sdk.gen";
 import { Route } from "@/routes/jobs";
-import { useQuery } from "@tanstack/react-query";
 
-export function useJobsQuery(advanced: boolean = false) {
-  const { page, limit, q, title, company, location, description } =
+export function useJobsQuery() {
+  const { page, limit, q, title, company, location, description, advanced } =
     Route.useSearch();
 
-  const queryKey = advanced
-    ? ["advancedJobs", { page, limit, title, company, location, description }]
-    : ["jobs", { page, limit, q }];
+  const filters = { title, company, location, description } as const;
+  const isAdvanced =
+    advanced ||
+    Object.values(filters).some((arr) => (arr as string[]).length > 0);
 
-  const result = useQuery<JobsGetJobsResponse>({
+  const queryKey: QueryKey = [
+    "jobs",
+    isAdvanced ? "advanced" : "basic",
+    { page, limit, q, ...filters },
+  ];
+
+  const { data, isError, isFetching } = useSuspenseQuery<JobRead[], Error>({
     queryKey,
+    staleTime: 60_000,
+    retry: 1,
     queryFn: async () => {
-      // Basic Search
-      if (!advanced) {
-        const response = await JobsService.getJobs({
-          query: { page, limit, search: q },
+      if (isAdvanced) {
+        const { data } = await JobsService.getJobsAdvanced({
+          query: { page, limit, ...filters },
           throwOnError: true,
         });
-        return response.data as unknown as JobRead[];
+        return data;
       }
-      // Advanced Search
-      else {
-        const response = await JobsService.getJobsAdvanced({
-          query: { page, limit, title, company, location, description },
-          throwOnError: true,
-        });
-        return response.data as unknown as JobRead[];
-      }
+      const { data } = await JobsService.getJobs({
+        query: { page, limit, search: q },
+        throwOnError: true,
+      });
+      return data;
     },
-    suspense: true,
   });
 
   return {
-    data: result.data || [],
-    isLoading: result.isLoading,
-    isError: result.isError,
-    hasMore: (result.data || []).length === limit,
+    data,
+    isError,
+    isFetching,
+    hasMore: data.length === limit,
   };
 }

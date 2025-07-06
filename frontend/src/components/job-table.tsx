@@ -1,15 +1,15 @@
 import {
   type Column,
   type ColumnDef,
-  type SortingState,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
+  type SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ArrowUpRight, ChevronsUpDown } from "lucide-react";
+import type { FC } from "react";
 import * as React from "react";
-
 import type { JobsGetJobsResponse } from "@/client";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,7 +29,50 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-/** Build a ColumnDef<T> array from a “sample” row’s keys */
+function ariaSort(
+  state: false | "asc" | "desc",
+): "none" | "ascending" | "descending" {
+  if (state === "asc") return "ascending";
+  if (state === "desc") return "descending";
+  return "none";
+}
+
+/** Isolated component so hook order stays consistent */
+const DescriptionCell: FC<{ desc: string }> = ({ desc }) => {
+  // Hook always executes, even when `desc` is empty
+  const [open, setOpen] = React.useState(false);
+
+  if (!desc) return null; // Early-return *after* the hook call
+
+  const truncated = desc.length > 30 ? `${desc.slice(0, 30).trimEnd()}…` : desc;
+
+  return desc.length <= 30 ? (
+    <>{desc}</>
+  ) : (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <span className="cursor-pointer underline underline-offset-2">
+          {truncated}
+        </span>
+      </DialogTrigger>
+
+      <DialogContent
+        role="document"
+        className="max-h-[90vh] sm:max-h-[80vh] w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] xl:w-[75vw] 2xl:w-[70vw] sm:max-w-none overflow-auto"
+      >
+        <DialogHeader>
+          <DialogTitle>Description</DialogTitle>
+          <DialogDescription asChild>
+            <div className="mt-4 leading-relaxed whitespace-pre-wrap">
+              {desc}
+            </div>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
 function makeColumns(
   sample: JobsGetJobsResponse[number],
 ): ColumnDef<typeof sample>[] {
@@ -52,44 +95,14 @@ function makeColumns(
         ),
       };
     }
+
     if (key === "description") {
       return {
         accessorKey: "description",
         header: ({ column }) => (
           <SortBtn column={column} title={titleCase(key)} />
         ),
-        cell: ({ getValue }) => {
-          const desc = String(getValue() ?? "");
-          const truncated = desc.length > 30 ? desc.slice(0, 30) + "..." : desc;
-          const [open, setOpen] = React.useState(false);
-          if (!desc) return null;
-          return (
-            <>
-              <span>{truncated} </span>
-              {desc.length > 30 && (
-                <>
-                  <Dialog open={open} onOpenChange={setOpen}>
-                    <DialogTrigger asChild>
-                      <Button
-                        variant="link"
-                        size="sm"
-                        className="px-1 h-auto text-xs align-baseline"
-                      >
-                        Read more
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:w-[90vw] sm:h-[80vh] w-[98vw] h-[90vh] max-w-3xl overflow-auto">
-                      <DialogHeader>
-                        <DialogTitle>Description</DialogTitle>
-                        <DialogDescription>{desc}</DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  </Dialog>
-                </>
-              )}
-            </>
-          );
-        },
+        cell: ({ getValue }) => <DescriptionCell desc={String(getValue())} />,
       };
     }
 
@@ -107,6 +120,7 @@ function titleCase(s: string) {
     .replace(/_/g, " ")
     .replace(/\w\S*/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
+
 function SortBtn({
   column,
   title,
@@ -119,7 +133,7 @@ function SortBtn({
       variant="ghost"
       size="sm"
       className="-ml-3 h-8"
-      onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      onClick={() => column.toggleSorting()}
     >
       {title}
       {column.getIsSorted() === "desc" ? (
@@ -156,7 +170,10 @@ export function JobTable({ data }: { data: JobsGetJobsResponse }) {
           {table.getHeaderGroups().map((hg) => (
             <TableRow key={hg.id}>
               {hg.headers.map((h) => (
-                <TableHead key={h.id}>
+                <TableHead
+                  key={h.id}
+                  aria-sort={ariaSort(h.column.getIsSorted())}
+                >
                   {flexRender(h.column.columnDef.header, h.getContext())}
                 </TableHead>
               ))}

@@ -1,12 +1,11 @@
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import React, { Suspense } from "react";
 import { Header } from "@/components/header";
 import NotFound from "@/components/not-found";
-import { Outlet, createRootRoute } from "@tanstack/react-router";
-import React from "react";
-import { Suspense } from "react";
 
 const loadDevtools = () =>
   Promise.all([
-    import("@tanstack/router-devtools"),
+    import("@tanstack/react-router-devtools"),
     import("@tanstack/react-query-devtools"),
   ]).then(([routerDevtools, reactQueryDevtools]) => {
     return {

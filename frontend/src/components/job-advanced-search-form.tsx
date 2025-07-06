@@ -1,7 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { Route, type SearchValues } from "@/routes/jobs";
 import { type Tag, TagInput } from "emblor";
 import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Route, type SearchValues } from "@/routes/jobs";
+
+const FIELDS = ["title", "company", "location", "description"] as const;
+type Field = (typeof FIELDS)[number];
+
+const INLINE_TAG_STYLES = {
+  inlineTagsContainer: "flex-nowrap overflow-x-auto",
+  tagList: { container: "flex-nowrap order-last", tag: "h-8" },
+  input: "order-first flex-shrink-0 h-8",
+} as const;
+
+type TagsByField = Record<Field, Tag[]>;
 
 export function AdvancedSearchForm({
   onSubmit,
@@ -9,77 +20,70 @@ export function AdvancedSearchForm({
   onSubmit: (val: SearchValues) => void;
 }) {
   const search = Route.useSearch();
-  const [titleTags, setTitleTags] = React.useState<Tag[]>(() =>
-    search.title.map((t, i) => ({ id: String(i), text: t })),
-  );
-  const [companyTags, setCompanyTags] = React.useState<Tag[]>(() =>
-    search.company.map((t, i) => ({ id: String(i), text: t })),
-  );
-  const [locationTags, setLocationTags] = React.useState<Tag[]>(() =>
-    search.location.map((t, i) => ({ id: String(i), text: t })),
-  );
-  const [descriptionTags, setDescriptionTags] = React.useState<Tag[]>(() =>
-    search.description.map((t, i) => ({ id: String(i), text: t })),
-  );
+
+  /** one shared focus index for keyboard nav */
   const [activeTagIndex, setActiveTagIndex] = React.useState<number | null>(
     null,
   );
 
+  const [tags, setTags] = React.useState<TagsByField>(
+    () =>
+      Object.fromEntries(
+        FIELDS.map((field) => [
+          field,
+          search[field].map((t: string, i: number) => ({
+            id: `${i}`,
+            text: t,
+          })),
+        ]),
+      ) as TagsByField,
+  );
+
   React.useEffect(() => {
-    setTitleTags(search.title.map((t, i) => ({ id: String(i), text: t })));
-    setCompanyTags(search.company.map((t, i) => ({ id: String(i), text: t })));
-    setLocationTags(
-      search.location.map((t, i) => ({ id: String(i), text: t })),
-    );
-    setDescriptionTags(
-      search.description.map((t, i) => ({ id: String(i), text: t })),
+    setTags(
+      Object.fromEntries(
+        FIELDS.map((field) => [
+          field,
+          search[field].map((t: string, i: number) => ({
+            id: `${i}`,
+            text: t,
+          })),
+        ]),
+      ) as TagsByField,
     );
   }, [search]);
 
+  const nothingEntered = !Object.values(tags).some((arr) => arr.length);
+
   return (
-    <div className="flex flex-col gap-2">
-      <TagInput
-        tags={titleTags}
-        setTags={setTitleTags}
-        placeholder="Title keywords"
-        activeTagIndex={activeTagIndex}
-        setActiveTagIndex={setActiveTagIndex}
-        addTagsOnBlur
-      />
-      <TagInput
-        tags={companyTags}
-        setTags={setCompanyTags}
-        placeholder="Company keywords"
-        activeTagIndex={activeTagIndex}
-        setActiveTagIndex={setActiveTagIndex}
-        addTagsOnBlur
-      />
-      <TagInput
-        tags={locationTags}
-        setTags={setLocationTags}
-        placeholder="Location keywords"
-        activeTagIndex={activeTagIndex}
-        setActiveTagIndex={setActiveTagIndex}
-        addTagsOnBlur
-      />
-      <TagInput
-        tags={descriptionTags}
-        setTags={setDescriptionTags}
-        placeholder="Description keywords"
-        activeTagIndex={activeTagIndex}
-        setActiveTagIndex={setActiveTagIndex}
-        addTagsOnBlur
-      />
+    <div className="grid gap-2 sm:grid-cols-2">
+      {FIELDS.map((field) => (
+        <div key={field} className="min-w-0">
+          <TagInput
+            placeholder={`${field[0].toUpperCase()}${field.slice(1)} keywords`}
+            tags={tags[field]}
+            setTags={(newTags) =>
+              setTags((prev) => ({ ...prev, [field]: newTags }))
+            }
+            activeTagIndex={activeTagIndex}
+            setActiveTagIndex={setActiveTagIndex}
+            addTagsOnBlur
+            inlineTags
+            styleClasses={INLINE_TAG_STYLES}
+          />
+        </div>
+      ))}
+
       <Button
-        variant="outline"
+        className="sm:col-span-2"
         type="button"
+        disabled={nothingEntered}
         onClick={() =>
-          onSubmit({
-            title: titleTags.map((t) => t.text),
-            company: companyTags.map((t) => t.text),
-            location: locationTags.map((t) => t.text),
-            description: descriptionTags.map((t) => t.text),
-          })
+          onSubmit(
+            Object.fromEntries(
+              FIELDS.map((f) => [f, tags[f].map((t) => t.text)]),
+            ) as SearchValues,
+          )
         }
       >
         Advanced Search

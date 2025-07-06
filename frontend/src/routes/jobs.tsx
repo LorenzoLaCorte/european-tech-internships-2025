@@ -37,14 +37,13 @@ function JobsPage() {
   const { limit, advanced } = search;
   const navigate = Route.useNavigate();
 
-  // When user searches, reset page back to 1
   const handleSearch = (val: string) =>
     navigate({
       to: ".",
       search: {
         ...search,
         page: 1,
-        limit: limit,
+        limit,
         q: val,
         advanced: false,
         title: [],
@@ -58,13 +57,13 @@ function JobsPage() {
   const handleAdvancedSearch = (val: SearchValues) =>
     navigate({
       to: ".",
-      search: { ...search, page: 1, limit: limit, advanced: true, ...val },
+      search: { ...search, page: 1, limit, advanced: true, ...val },
       replace: true,
     });
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-4 p-4">
-      <div className="flex items-center gap-2">
+    <section className="mx-auto w-full max-w-screen-2xl flex flex-col gap-4 p-4 sm:px-6 lg:px-8">
+      <div className="flex flex-wrap items-center gap-2">
         <Switch
           id="mode"
           checked={advanced}
@@ -86,11 +85,12 @@ function JobsPage() {
         />
         <label
           htmlFor="mode"
-          className="text-sm font-semibold text-muted-foreground cursor-pointer"
+          className="cursor-pointer text-sm font-semibold text-muted-foreground"
         >
           {advanced ? "Advanced Search" : "Basic Search"}
         </label>
       </div>
+
       <p className="text-sm text-muted-foreground">
         {advanced
           ? "Specify keywords for title, company, location and description."
@@ -103,33 +103,21 @@ function JobsPage() {
         <JobSearchForm onSubmit={handleSearch} />
       )}
 
-      {/* Only table + pagination will suspend */}
       <Suspense fallback={<JobTableSkeleton />}>
         <JobsTableContainer />
       </Suspense>
-    </div>
+    </section>
   );
 }
 
 function JobsTableContainer() {
   const search = Route.useSearch();
-
-  const advancedSearchActive = [
-    search.title,
-    search.company,
-    search.location,
-    search.description,
-  ].some((fields) => fields.length > 0);
-
-  const { data, hasMore } = useJobsQuery(advancedSearchActive);
+  const { data, hasMore } = useJobsQuery();
 
   return (
     <>
       <JobTable data={data} />
-      <DataTablePagination
-        pageSize={Route.useSearch().limit}
-        hasMore={hasMore}
-      />
+      <DataTablePagination pageSize={search.limit} hasMore={hasMore} />
     </>
   );
 }

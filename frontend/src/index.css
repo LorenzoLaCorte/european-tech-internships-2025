@@ -70,4 +70,10 @@
     appearance: textfield;
     -moz-appearance: textfield;
   }
+
+  /* Ensure images never overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
