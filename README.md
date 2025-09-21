@@ -32,200 +32,121 @@ Whether you're reporting bugs, enhancing documentation, or improving the code, e
 |company|title|location|link|
 |---|---|---|---|
 |amazon web services (aws)|2025 software development engineer intern - embedded development (m/w/d)|berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4147788039)||
+|meta|software engineer intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4299534674)||
 |microsoft|software engineer internship opportunities|oslo, oslo, norway|[🔗](https://www.linkedin.com/jobs/view/4287917745)||
+|microsoft|software engineer internship opportunities|prague, prague, worldwide|[🔗](https://www.linkedin.com/jobs/view/4299783374)||
 |microsoft|software engineer internship opportunities|tromsø, troms og finnmark, norway|[🔗](https://www.linkedin.com/jobs/view/4287916798)||
 |microsoft|software engineer internship opportunities|trondheim, trøndelag, norway|[🔗](https://www.linkedin.com/jobs/view/4287914780)||
-|microsoft|software engineering internship opportunities|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4287915865)||
-|abb|internship - r&d control software engineer|cracow, małopolskie, poland|[🔗](https://www.linkedin.com/jobs/view/4287295765)||
-|abb|internship - r&d embedded software engineer|cracow, małopolskie, poland|[🔗](https://www.linkedin.com/jobs/view/4288619716)||
-|accenture the netherlands|thesis internship software and platforms industry - genai & data-driven sales/marketing models|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4270534533)||
 |aiesec in romania|software developer intern|ilfov, romania|[🔗](https://www.linkedin.com/jobs/view/4287474475)||
 |aiesec in romania|software development intern|ilfov, romania|[🔗](https://www.linkedin.com/jobs/view/4296496856)||
-|aizon|software business analyst intern|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4239122140)||
-|altech|software developer (internship)|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4141622187)||
-|arista networks|intern software engineers|cracow, małopolskie, poland|[🔗](https://www.linkedin.com/jobs/view/4287155690)||
-|arista networks|software engineer intern 2025/2026|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4283905749)||
-|aumovio|software engineer intern|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4297516854)||
-|bending spoons|software engineer, summer intern uk|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4296865304)||
-|bending spoons|software engineer, summer intern uk|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4296865305)||
-|bending spoons|software engineer, summer intern uk|spain|[🔗](https://www.linkedin.com/jobs/view/4296877192)||
-|betfair romania development|internship software engineer - flutter studios, hybrid|cluj-napoca, cluj, romania|[🔗](https://www.linkedin.com/jobs/view/4294446776)||
+|avanade|graduation internship in software engineering: azure communication services|ghent, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4300720257)||
 |bigblue|software engineer intern|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/3575815459)||
-|bitsight|software engineer intern|portugal|[🔗](https://www.linkedin.com/jobs/view/4284416475)||
-|bmw group|intern battery software development / full stack development (f/m/x)|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4252682616)||
-|bmw group|intern software development (f/m/x)|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4274646406)||
-|bridgestone mobility solutions|intern - software engineer|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4267786330)||
-|capgemini|software engineer trainee - internship in french projects|murcia, región de murcia, spain|[🔗](https://www.linkedin.com/jobs/view/4229841353)||
-|cegeka|stage software developer (rif. wem.intern) (1303_89002)|casalecchio di reno, emilia-romagna, italy|[🔗](https://www.linkedin.com/jobs/view/4243066420)||
-|cnh|intern (embedded software)|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4291243118)||
 |cogna|software engineer intern (2026 cohort)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4280783486)||
-|corintis|software engineering intern|lausanne, vaud, switzerland|[🔗](https://www.linkedin.com/jobs/view/4294575085)||
-|cytiva|software engineering intern - marlborough, ma|cracow, małopolskie, poland|[🔗](https://www.linkedin.com/jobs/view/4292196999)||
-|databricks|software engineering intern (2026 start) - aarhus|aarhus, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4291192765)||
-|databricks|software engineering intern (2026)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4291185908)||
-|datavisor|software engineer internship - ireland|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4294166991)||
 |deductive ai|software engineer intern, london|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4085602965)||
-|dolby laboratories|software engineering intern|wrocław, dolnośląskie, poland|[🔗](https://www.linkedin.com/jobs/view/4288915022)||
-|dotlumen|computer vision ml software intern|cluj-napoca, cluj, romania|[🔗](https://www.linkedin.com/jobs/view/4296212858)||
-|drw|software developer intern|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4266279797)||
 |eaton|software engineering intern|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4291778206)||
-|erste digital|internship software engineer (all genders) - #work&study #cobol / db2 #natural / adabas|innere stadt, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4285857854)||
-|fc internazionale milano|software engineer intern|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4296600778)||
-|ge healthcare|software engineering intern|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4295678640)||
-|gravis robotics|robotics software engineer internship - autonomy|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4092411855)||
-|hewlett packard enterprise|internship - software engineering|galway, county galway, ireland|[🔗](https://www.linkedin.com/jobs/view/4286036408)||
+|ge healthcare|software engineering intern|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4300035903)||
 |hid|intern software|suresnes, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4278808223)||
-|hp|software engineer intern|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4289957078)||
-|iason|software developer internship|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4091103219)||
-|iav gmbh|internship - software development|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4249781423)||
-|iav gmbh|internship – software development|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4250275246)||
-|ibm|software developer intern 2026|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4294435781)||
-|ibm|software developer intern 2026|mulhuddart, fingal, ireland|[🔗](https://www.linkedin.com/jobs/view/4294444381)||
 |inetum|intern .net software engineer|poznań, wielkopolskie, poland|[🔗](https://www.linkedin.com/jobs/view/4287941466)||
-|infineon technologies|internship: digitalization - software programmer in the ip context (f/m/div)|villach, carinthia, austria|[🔗](https://www.linkedin.com/jobs/view/4214652767)||
-|kamstrup|internship in advanced high level software|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293769509)||
-|kamstrup|internship in backend software development|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293768531)||
-|kamstrup|internship in embedded software development for electricity meters|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293767538)||
-|kamstrup|internship in high level software development|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293768521)||
-|kamstrup|internship in manufacturing software|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293765579)||
-|kamstrup|internship in software quality assurance|skanderborg, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4293768528)||
-|kyriba|software engineer(java)-intern|poland|[🔗](https://www.linkedin.com/jobs/view/4293774667)||
-|kyriba|software engineer(java)-intern|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4293769899)||
-|montrose software|paid internship - software developer|time, rogaland, norway|[🔗](https://www.linkedin.com/jobs/view/4147179159)||
-|motork|software engineer intern|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4291887974)||
+|inetum|intern .net software engineer|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4300883631)||
+|infineon technologies|internship: software developer (f/m/div)|graz, styria, austria|[🔗](https://www.linkedin.com/jobs/view/4301265795)||
+|mongodb|2026 - software engineering intern, dublin|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4299787109)||
+|monzo bank|associate software engineer - intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301309975)||
 |naptha ai|software engineer (intern)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4151316672)||
 |naptha ai|software engineer (intern)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4151321449)||
 |naptha ai|software engineer (intern)|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4151323166)||
 |naptha ai|software engineer (intern)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4151319483)||
 |naptha ai|software engineer (intern)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4151316671)||
-|netcompany|internship in software development|athens, attiki, greece|[🔗](https://www.linkedin.com/jobs/view/4258136174)||
-|netcompany|internship in software development|patras, western greece, greece|[🔗](https://www.linkedin.com/jobs/view/4258136177)||
-|netcompany|internship in software development|thessaloniki, central macedonia, greece|[🔗](https://www.linkedin.com/jobs/view/4258127953)||
-|nvidia|hpc and ai software architecture intern - 2025|germany|[🔗](https://www.linkedin.com/jobs/view/4273545093)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|eindhoven, north brabant, netherlands|[🔗](https://www.linkedin.com/jobs/view/4293733779)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|hamburg, hamburg, germany|[🔗](https://www.linkedin.com/jobs/view/4293735657)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4293730815)||
-|odoo|software engineer intern|ramillies, walloon region, belgium|[🔗](https://www.linkedin.com/jobs/view/4288862525)||
-|onsemi|intern in software engineering|marin-epagnier, neuchâtel, switzerland|[🔗](https://www.linkedin.com/jobs/view/4293652143)||
-|optiverse|software engineer intern|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4293497189)||
-|pinterest|software engineering intern 2026 (dublin)|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4279672383)||
+|odoo|software engineer intern|ramillies, walloon region, belgium|[🔗](https://www.linkedin.com/jobs/view/4298701324)||
+|powernaut|software engineering internship|ghent, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4297839190)||
 |princeton biopartners|part-time software engineering intern uk (full stack) – healthcare|united kingdom|[🔗](https://www.linkedin.com/jobs/view/4289140015)||
 |procter & gamble|software engineering internship|brussels, brussels region, belgium|[🔗](https://www.linkedin.com/jobs/view/4259880365)||
 |procter & gamble|software engineering internship|mechelen, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4287143227)||
-|proxima fusion|internship - software engineer|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4285714913)||
-|pwc italy|software engineer intern - milano [dig]|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4266638548)||
-|qantev|software engineer intern|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4292561764)||
 |qorvo, inc.|software engineering intern|zele, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4295070311)||
 |quickbase|software engineer in test intern|sofia, sofia city, worldwide|[🔗](https://www.linkedin.com/jobs/view/4288208861)||
 |quickbase|software engineering intern|sofia, sofia city, worldwide|[🔗](https://www.linkedin.com/jobs/view/4288213493)||
-|r systems|java software engineer intern|craiova, dolj, romania|[🔗](https://www.linkedin.com/jobs/view/4282809430)||
-|re:lab s.r.l.|software developer - internship|reggio nell'emilia, emilia-romagna, italy|[🔗](https://www.linkedin.com/jobs/view/4294991129)||
-|reltio|intern - software engineering|lisbon, lisbon, portugal|[🔗](https://www.linkedin.com/jobs/view/4232863525)||
+|red hat|software engineering internship - openstack (dublin office, ireland)|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4301193015)||
 |revo foods|student internship in software engineering|vienna, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4294423612)||
-|rocket factory augsburg - rfa|intern (m/f/d) hardware-in-the-loop software engineering|augsburg, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4261699298)||
-|saeki|software product intern|bäretswil, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4289838704)||
 |sap|sap btp ixp intern - sap build bpm ixp intern - software developer|sofia, sofia city, worldwide|[🔗](https://www.linkedin.com/jobs/view/4287308885)||
 |sap|sap ixp intern - software developer for circular economy cloud applications|sofia, sofia city, worldwide|[🔗](https://www.linkedin.com/jobs/view/4204868359)||
 |septentrio part of hexagon|internship  embedded software ecosystems integrator  leuven|leuven, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4095600538)||
 |septentrio part of hexagon|internship  innovative software application/ tooling  leuven|leuven, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4186594874)||
 |skan|internship in innovative software development - intelligent desktop and cad solutions with c# / wpf|allschwil, basel-country, switzerland|[🔗](https://www.linkedin.com/jobs/view/4249169751)||
 |snowflake|software engineer intern - berlin (2025)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4205341606)||
-|sophos|software engineer intern|hungary|[🔗](https://www.linkedin.com/jobs/view/4292520435)||
-|stripe|software engineer, intern|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4294694293)||
-|stripe|software engineer, intern|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4294697273)||
-|systematic|internship - software developer|aarhus, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4294112646)||
 |taktile|software engineer working student/intern|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4205745296)||
-|tesla|front end software engineer internship|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4289931595)||
-|tietalent|senior softwareentwickler für interne systeme m/w/d|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4297824464)||
 |ubs|tech internship – java software engineer|wrocław, dolnośląskie, poland|[🔗](https://www.linkedin.com/jobs/view/4294891574)||
-|unio enterprise|software developer intern|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4252664747)||
-|webb traders|internship: software engineer - technology & innovation|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4248043652)||
 <!-- END INTERNSHIPS -->
 
 ## ML Internship Positions
 <!-- BEGIN ML_INTERNSHIPS -->
 |company|title|location|link|
 |---|---|---|---|
+|meta|research scientist intern, 3d computer vision and generative ai (phd)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4297098959)||
+|meta|research scientist intern, 3d computer vision and machine learning (phd)|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4297404922)||
+|meta|research scientist intern, 3d world modelling, robotics and generative ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4295889706)||
 |meta|research scientist intern, ai-driven neural interfaces (phd)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4292755942)||
-|meta|research scientist intern, monetization ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4284307899)||
+|meta|research scientist intern, audio, machine learning and computer vision (phd)|cambridge, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4294760052)||
+|avanade|graduation internship analytics  open assignment on data & ai|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4300727156)||
+|bearingpoint|paid internship - backend/frontend developer for bearingpoint products|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4272862849)||
 |bmw group|intern ai-based recommender systems (f/m/x)|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4264451343)||
-|energy robotics|ai engineer working student / intern (m/f/d)|darmstadt, hesse, germany|[🔗](https://www.linkedin.com/jobs/view/4264427912)||
-|ferrovial|ai engineer internship|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4281423950)||
+|deutsche telekom services europe romania (dtse romania)|ai intern scrum|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4297544895)||
 |instadeep|research engineer intern in bioai|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4283928978)||
 |leeroo|research scientist intern – phd (ai agentic systems)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4270923748)||
-|mapendo|sales specialist (paid hiring internship)|bologna, emilia-romagna, italy|[🔗](https://www.linkedin.com/jobs/view/4292781452)||
 |merck healthcare|internship - ai & ml - operational excellence ai & ml - all genders|corsier, vaud, switzerland|[🔗](https://www.linkedin.com/jobs/view/4289265527)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|eindhoven, north brabant, netherlands|[🔗](https://www.linkedin.com/jobs/view/4293733779)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|hamburg, hamburg, germany|[🔗](https://www.linkedin.com/jobs/view/4293735657)||
 |nxp semiconductors|intern (f/m/d) agentic ai software engineer|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4293730815)||
-|publicis groupe|stagiaire juriste contrats & achats / intern legal counsel procurement & contracts - janvier 2026|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4294269604)||
-|renault group|[internship] ai engineering for fota debugging (f/m)|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4281373559)||
-|renault group|[internship] ai engineering for fota debugging (f/m)|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4281374409)||
-|smadex|machine learning intern|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4286380234)||
+|tailormade logistics|internship - fleet trainee|ghent, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4294716780)||
+|tailormade logistics|internship - transport trainee|ghent, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4294709956)||
 |van lanschot kempen|ai-driven network monitoring and troubleshooting internship(en)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4271681196)||
-|world food programme|internship – ai integration & investigative technologies, oigi, rome, italy|rome, latium, italy|[🔗](https://www.linkedin.com/jobs/view/4295464055)||
-|zocks  ai for advisors|ai intern – industry-specific prompts|budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4281254900)||
+|waymo|2026 summer intern, phd, machine learning engineer, simulation|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301605050)||
 <!-- END ML_INTERNSHIPS -->
 
 ## New Grad Positions
 <!-- BEGIN NEWGRADS -->
 |company|title|location|link|
 |---|---|---|---|
+|arm|graduate graphics software engineer|trondheim, trøndelag, norway|[🔗](https://www.linkedin.com/jobs/view/4299646296)||
+|arm|graduate software and automation / devops engineer - cpu|sophia antipolis, provence-alpes-côte d'azur, france|[🔗](https://www.linkedin.com/jobs/view/4300730058)||
+|arm|graduate software tools engineer|trondheim, trøndelag, norway|[🔗](https://www.linkedin.com/jobs/view/4299390474)||
 |barco|software developer - early career, graduate|kortrijk, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4283353049)||
-|bending spoons|2026 grad program, software engineering|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4298623649)||
-|bending spoons|2026 grad program, software engineering|bologna, emilia-romagna, italy|[🔗](https://www.linkedin.com/jobs/view/4298620786)||
-|bending spoons|2026 grad program, software engineering|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4298622692)||
-|bending spoons|2026 grad program, software engineering|cluj-napoca, cluj, romania|[🔗](https://www.linkedin.com/jobs/view/4298618883)||
-|bending spoons|2026 grad program, software engineering|edinburgh, scotland, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4298629525)||
-|bending spoons|2026 grad program, software engineering|france|[🔗](https://www.linkedin.com/jobs/view/4298632356)||
-|bending spoons|2026 grad program, software engineering|italy|[🔗](https://www.linkedin.com/jobs/view/4298625657)||
-|bending spoons|2026 grad program, software engineering|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4298622690)||
-|bending spoons|2026 grad program, software engineering|lyon, auvergne-rhône-alpes, france|[🔗](https://www.linkedin.com/jobs/view/4298631376)||
-|bending spoons|2026 grad program, software engineering|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4298636079)||
-|bending spoons|2026 grad program, software engineering|manchester, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4298629527)||
-|bending spoons|2026 grad program, software engineering|marseille, provence-alpes-côte d'azur, france|[🔗](https://www.linkedin.com/jobs/view/4298619772)||
-|bending spoons|2026 grad program, software engineering|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4298627600)||
-|bending spoons|2026 grad program, software engineering|orsay, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4298638012)||
-|bending spoons|2026 grad program, software engineering|padua, veneto, italy|[🔗](https://www.linkedin.com/jobs/view/4298624697)||
-|bending spoons|2026 grad program, software engineering|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4298618882)||
-|bending spoons|2026 grad program, software engineering|pisa, tuscany, italy|[🔗](https://www.linkedin.com/jobs/view/4298616927)||
-|bending spoons|2026 grad program, software engineering|romania|[🔗](https://www.linkedin.com/jobs/view/4298624696)||
-|bending spoons|2026 grad program, software engineering|rome, latium, italy|[🔗](https://www.linkedin.com/jobs/view/4298639010)||
-|bending spoons|2026 grad program, software engineering|seville, andalusia, spain|[🔗](https://www.linkedin.com/jobs/view/4298633257)||
-|bending spoons|2026 grad program, software engineering|spain|[🔗](https://www.linkedin.com/jobs/view/4298631375)||
-|bending spoons|2026 grad program, software engineering|toulouse, occitanie, france|[🔗](https://www.linkedin.com/jobs/view/4298618881)||
-|bending spoons|2026 grad program, software engineering|trento, trentino-alto adige, italy|[🔗](https://www.linkedin.com/jobs/view/4298619771)||
-|bending spoons|2026 grad program, software engineering|turin, piedmont, italy|[🔗](https://www.linkedin.com/jobs/view/4298622691)||
-|bending spoons|2026 grad program, software engineering|valencia, valencian community, spain|[🔗](https://www.linkedin.com/jobs/view/4298627602)||
-|bending spoons|graduate software engineer|france|[🔗](https://www.linkedin.com/jobs/view/4298614984)||
-|bending spoons|graduate software engineer|lyon, auvergne-rhône-alpes, france|[🔗](https://www.linkedin.com/jobs/view/4298622674)||
-|bending spoons|graduate software engineer|marseille, provence-alpes-côte d'azur, france|[🔗](https://www.linkedin.com/jobs/view/4298631359)||
-|bending spoons|graduate software engineer|orsay, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4298623633)||
-|bending spoons|graduate software engineer|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4298631358)||
-|bending spoons|graduate software engineer|toulouse, occitanie, france|[🔗](https://www.linkedin.com/jobs/view/4298630506)||
+|bending spoons|2026 grad program, software engineering|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4301965009)||
+|bending spoons|2026 grad program, software engineering|bologna, emilia-romagna, italy|[🔗](https://www.linkedin.com/jobs/view/4301962094)||
+|bending spoons|2026 grad program, software engineering|bucharest, bucharest, romania|[🔗](https://www.linkedin.com/jobs/view/4301956225)||
+|bending spoons|2026 grad program, software engineering|cluj-napoca, cluj, romania|[🔗](https://www.linkedin.com/jobs/view/4301953289)||
+|bending spoons|2026 grad program, software engineering|edinburgh, scotland, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301954237)||
+|bending spoons|2026 grad program, software engineering|france|[🔗](https://www.linkedin.com/jobs/view/4301956222)||
+|bending spoons|2026 grad program, software engineering|italy|[🔗](https://www.linkedin.com/jobs/view/4301961097)||
+|bending spoons|2026 grad program, software engineering|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301954241)||
+|bending spoons|2026 grad program, software engineering|lyon, auvergne-rhône-alpes, france|[🔗](https://www.linkedin.com/jobs/view/4301953286)||
+|bending spoons|2026 grad program, software engineering|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4301961098)||
+|bending spoons|2026 grad program, software engineering|manchester, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301958221)||
+|bending spoons|2026 grad program, software engineering|marseille, provence-alpes-côte d'azur, france|[🔗](https://www.linkedin.com/jobs/view/4301955247)||
+|bending spoons|2026 grad program, software engineering|milan, lombardy, italy|[🔗](https://www.linkedin.com/jobs/view/4301942975)||
+|bending spoons|2026 grad program, software engineering|orsay, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4301947456)||
+|bending spoons|2026 grad program, software engineering|padua, veneto, italy|[🔗](https://www.linkedin.com/jobs/view/4301961102)||
+|bending spoons|2026 grad program, software engineering|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4301951327)||
+|bending spoons|2026 grad program, software engineering|pisa, tuscany, italy|[🔗](https://www.linkedin.com/jobs/view/4301952323)||
+|bending spoons|2026 grad program, software engineering|romania|[🔗](https://www.linkedin.com/jobs/view/4301944846)||
+|bending spoons|2026 grad program, software engineering|rome, latium, italy|[🔗](https://www.linkedin.com/jobs/view/4301956221)||
+|bending spoons|2026 grad program, software engineering|seville, andalusia, spain|[🔗](https://www.linkedin.com/jobs/view/4301959169)||
+|bending spoons|2026 grad program, software engineering|spain|[🔗](https://www.linkedin.com/jobs/view/4301959170)||
+|bending spoons|2026 grad program, software engineering|toulouse, occitanie, france|[🔗](https://www.linkedin.com/jobs/view/4301944845)||
+|bending spoons|2026 grad program, software engineering|trento, trentino-alto adige, italy|[🔗](https://www.linkedin.com/jobs/view/4301953285)||
+|bending spoons|2026 grad program, software engineering|turin, piedmont, italy|[🔗](https://www.linkedin.com/jobs/view/4301943961)||
+|bending spoons|2026 grad program, software engineering|valencia, valencian community, spain|[🔗](https://www.linkedin.com/jobs/view/4301947454)||
 |bitpanda|graduate, java software engineer (core trading services)|vienna, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4294326302)||
 |canonical|graduate software engineer, open source and linux, canonical ubuntu|antwerp, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4290901303)||
 |canonical|graduate software engineer, open source and linux, canonical ubuntu|brussels, brussels region, belgium|[🔗](https://www.linkedin.com/jobs/view/4290694756)||
-|canonical|graduate software engineer, open source and linux, canonical ubuntu|helsinki, uusimaa, finland|[🔗](https://www.linkedin.com/jobs/view/4290699482)||
-|canonical|graduate software engineer, open source and linux, canonical ubuntu|lille, hauts-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4290695729)||
-|canonical|graduate software engineer, open source and linux, canonical ubuntu|nice, provence-alpes-côte d'azur, france|[🔗](https://www.linkedin.com/jobs/view/4290697576)||
-|canonical|graduate software engineer, open source and linux, canonical ubuntu|rennes, brittany, france|[🔗](https://www.linkedin.com/jobs/view/4290698530)||
-|canonical|graduate software engineer, open source and linux, canonical ubuntu|tallinn, harjumaa, worldwide|[🔗](https://www.linkedin.com/jobs/view/4290902309)||
 |canonical|graduate software engineer, open source and linux, canonical ubuntu|vienna, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4290697585)||
-|canonical|software engineer - python - ubuntu pro client - graduate level|helsinki, uusimaa, finland|[🔗](https://www.linkedin.com/jobs/view/4233270755)||
-|canonical|software engineer - python - ubuntu pro client - graduate level|lille, hauts-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4233272483)||
-|canonical|software engineer - python - ubuntu pro client - graduate level|rennes, brittany, france|[🔗](https://www.linkedin.com/jobs/view/4233270770)||
+|canonical|software engineer - python - ubuntu pro client - graduate level|antwerp, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4233271679)||
 |canonical|software engineer - python - ubuntu pro client - graduate level|sofia, sofia city, worldwide|[🔗](https://www.linkedin.com/jobs/view/4233273373)||
-|canonical|software engineer - python - ubuntu pro client - graduate level|tallinn, harjumaa, worldwide|[🔗](https://www.linkedin.com/jobs/view/4233277053)||
-|canonical|software engineer - python - ubuntu pro client - graduate level|toulouse, occitanie, france|[🔗](https://www.linkedin.com/jobs/view/4233273375)||
 |canonical|software engineer - python - ubuntu pro client - graduate level|vienna, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4233273386)||
-|databricks|software engineer - new grad (2026 start) - aarhus|aarhus, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4291191782)||
-|databricks|software engineer - new grad (2026 start)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4291197209)||
-|databricks|software engineer - new grad (2026 start)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4291197210)||
-|imc trading|graduate software engineer (2026)|aarhus, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4299162612)||
-|ion|software developer/engineer - graduate development program|any-martin-rieux, hauts-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4103515071)||
-|netlight|software engineering consultant (2024-2026 graduate)|helsinki, uusimaa, finland|[🔗](https://www.linkedin.com/jobs/view/4292724933)||
-|oscar associates (uk) limited|graduate/junior software developer|nottingham, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4281434526)||
+|databricks|software engineer - new grad (2026 start) - aarhus|aarhus, central denmark region, denmark|[🔗](https://www.linkedin.com/jobs/view/4297744052)||
+|databricks|software engineer - new grad (2026 start)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4297756009)||
+|databricks|software engineer - new grad (2026 start)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4297749056)||
 |palantir technologies|forward deployed software engineer, new grad - commercial|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4280355917)||
 |palantir technologies|forward deployed software engineer, new grad - uk government|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4277538770)||
 |palantir technologies|software engineer, new grad - infrastructure|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4277542207)||
