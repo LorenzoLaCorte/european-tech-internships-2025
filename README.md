@@ -33,13 +33,12 @@ Whether you're reporting bugs, enhancing documentation, or improving the code, e
 |---|---|---|---|
 |amazon web services (aws)|2026 software dev engineer intern - spain|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4308986221)||
 |amazon web services (aws)|2026 software dev engineer intern - spain|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4308986222)||
-|amazon|2026 software dev engineer intern - estonia|tallinn, harjumaa, worldwide|[🔗](https://www.linkedin.com/jobs/view/4332775413)||
+|amazon|2026 software dev engineer intern - austria|graz, styria, austria|[🔗](https://www.linkedin.com/jobs/view/4335887120)||
 |amazon|2026 software dev engineer intern - ireland|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4308442126)||
 |amazon|2026 software dev engineer intern - romania|iaşi, iaşi, romania|[🔗](https://www.linkedin.com/jobs/view/4318251005)||
 |amazon|software development intern, intech|deventer, overijssel, netherlands|[🔗](https://www.linkedin.com/jobs/view/4334183568)||
-|meta|software engineer intern, machine learning (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4306109884)||
-|meta|software engineer intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4299534674)||
-|microsoft|software engineer internship opportunities|tallinn, harjumaa, worldwide|[🔗](https://www.linkedin.com/jobs/view/4308034270)||
+|abn amro bank n.v.|junior software developer intern (mbo)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4335994265)||
+|adobe|2026 intern - software development engineer|hamburg, hamburg, germany|[🔗](https://www.linkedin.com/jobs/view/4316702766)||
 |beyond now|spring-internship 2026: software developer (m/f/x) for customer projects|raaba, styria, austria|[🔗](https://www.linkedin.com/jobs/view/4301001642)||
 |beyond now|spring-internship 2026: software developer (m/f/x) in r&d|raaba, styria, austria|[🔗](https://www.linkedin.com/jobs/view/4300688852)||
 |beyond now|summer-internship 2026: software developer (m/f/x) for customer projects|raaba, styria, austria|[🔗](https://www.linkedin.com/jobs/view/4304001477)||
@@ -52,19 +51,21 @@ Whether you're reporting bugs, enhancing documentation, or improving the code, e
 |deductive ai|software engineer intern, london|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4318516271)||
 |european space agency - esa|intern in the engineering, software development and visualization tools|darmstadt, hesse, germany|[🔗](https://www.linkedin.com/jobs/view/4333409612)||
 |ge healthcare|software engineering intern|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4300035903)||
-|itron, inc.|software engineer intern|budapest, budapest, hungary|[🔗](https://www.linkedin.com/jobs/view/4335163927)||
 |keysight technologies|software development intern|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4313358184)||
+|match group|software engineer internship|ghent, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4314505518)||
 |mongodb|2026 - software engineering intern - internal engineering, dublin|dublin, county dublin, ireland|[🔗](https://www.linkedin.com/jobs/view/4334079726)||
-|monzo bank|associate software engineer - intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301309975)||
+|odoo|software engineer intern|ramillies, walloon region, belgium|[🔗](https://www.linkedin.com/jobs/view/4336493151)||
 |pa consulting|2026 summer internship - software & controls engineer – cambridge|melbourn, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4320945209)||
 |pigment|internship - software engineer (back, fullstack)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4303067905)||
-|richemont|strategic software asset coordinator intern|meyrin, geneva, switzerland|[🔗](https://www.linkedin.com/jobs/view/4335486275)||
+|procter & gamble|software engineering internship|mechelen, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4287143227)||
+|revo foods|student internship in software engineering|vienna, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4294423612)||
+|richemont|strategic software asset coordinator intern|meyrin, geneva, switzerland|[🔗](https://www.linkedin.com/jobs/view/4336276875)||
 |sentry|software engineer, intern (summer 2026)|innere stadt, vienna, austria|[🔗](https://www.linkedin.com/jobs/view/4309395824)||
-|siemens|software engineering intern (12 months)|hebburn, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4318374364)||
+|septentrio part of hexagon|internship  embedded software ecosystems integrator  leuven|leuven, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4095600538)||
+|septentrio part of hexagon|internship  innovative software application/ tooling  leuven|leuven, flemish region, belgium|[🔗](https://www.linkedin.com/jobs/view/4186594874)||
 |siemens|train software engineer intern  - 3 months|city of london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4321796506)||
 |slb|cloud software engineer intern (12 months)|abingdon-on-thames, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4307282227)||
 |slb|embedded software engineer intern (12 months)|stonehouse, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4310090388)||
-|slb|full-stack software engineer intern (12 months)|abingdon-on-thames, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4314392604)||
 |snowflake|software engineer intern - berlin (2026)|berlin, berlin, germany|[🔗](https://www.linkedin.com/jobs/view/4311124015)||
 |taktile|software engineer working student/intern|iaşi, iaşi, romania|[🔗](https://www.linkedin.com/jobs/view/4318298888)||
 |van lanschot kempen|software developer – internship(en)|amsterdam, north holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4334137930)||
@@ -76,39 +77,46 @@ Whether you're reporting bugs, enhancing documentation, or improving the code, e
 <!-- BEGIN ML_INTERNSHIPS -->
 |company|title|location|link|
 |---|---|---|---|
-|amazon web services (aws)|2026 software dev engineer intern - spain|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4308986221)||
-|amazon web services (aws)|2026 software dev engineer intern - spain|madrid, community of madrid, spain|[🔗](https://www.linkedin.com/jobs/view/4308986222)||
-|meta|research scientist intern - ai core machine learning|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4337996652)||
 |meta|research scientist intern, 3d computer vision and generative ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4339791069)||
 |meta|research scientist intern, 3d computer vision and generative ai (phd)|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4306506280)||
+|meta|research scientist intern, 3d generative ai for digital humans (phd)|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4340966909)||
 |meta|research scientist intern, 3d perception, understanding and generative ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4318945364)||
 |meta|research scientist intern, 3d world modelling, robotics and generative ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4295889706)||
 |meta|research scientist intern, ai core machine learning (phd)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4313321055)||
 |meta|research scientist intern, ai core machine learning|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4309509934)||
-|meta|research scientist intern, ai-driven neural interfaces (phd)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4292755942)||
 |meta|research scientist intern, alignment - brain and ai (phd) (paris)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4312444506)||
 |meta|research scientist intern, audio, machine learning and computer vision (phd)|cambridge, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4294760052)||
 |meta|research scientist intern, generative ai (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4339951008)||
 |meta|research scientist intern, generative ai (phd)|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4311344188)||
 |meta|research scientist intern, machine learning, character animation (phd)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4303755722)||
 |meta|research scientist intern, machine learning, human motion models (phd)|zurich, zurich, switzerland|[🔗](https://www.linkedin.com/jobs/view/4313317108)||
+|microsoft|research intern - ai agents & efficiency|cambridge, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4341653722)||
+|microsoft|research intern - machine learning and statistics|cambridge, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4341433247)||
+|adsmurai|paid media specialist intern  (they/he/she)|barcelona, catalonia, spain|[🔗](https://www.linkedin.com/jobs/view/4322129456)||
 |bmw group|intern ai-based recommender systems (f/m/x)|munich, bavaria, germany|[🔗](https://www.linkedin.com/jobs/view/4264451343)||
 |cognite|atlas ai training data curation internship: fueling knowledge graph intelligence|oslo, oslo, norway|[🔗](https://www.linkedin.com/jobs/view/4317491073)||
+|cognite|foundational model research & engineering internship: building next-generation industrial ai|oslo, oslo, norway|[🔗](https://www.linkedin.com/jobs/view/4317489136)||
 |dojo|intern, associate ai engineer|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4319090050)||
 |expedia group|machine learning science intern - june 2026 - london - masters|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4318697202)||
 |expedia group|machine learning science intern - june 2026 - london - phd|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4318690363)||
+|foreo|ai/python intern: passionate about agent development kit, open source, edge ei, gke (remote, 6 months, unpaid internship)|warsaw, mazowieckie, poland|[🔗](https://www.linkedin.com/jobs/view/4322959972)||
+|instadeep|ai research engineer intern|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4337151325)||
 |instadeep|research engineer intern bioai|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4283928978)||
 |instadeep|research engineer intern, deep learning for protein structure modelling|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4308077226)||
 |jus connect|internship in legaltech – jus ai arbitration legal expert intern (6 months)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4318129181)||
 |jus mundi|internship in legaltech – jus ai arbitration legal expert intern (6 months)|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4315412312)||
+|kering|kering ai intern|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4336503865)||
+|kerry|2026 agribusiness farm& home store internship programme - kerry dairy ireland|listowel, county kerry, ireland|[🔗](https://www.linkedin.com/jobs/view/4318529017)||
+|kerry|2026 milk quality& sustainability internship programme - kerry dairy ireland|ennis, county clare, ireland|[🔗](https://www.linkedin.com/jobs/view/4336221997)||
 |leeroo|research scientist intern – phd (ai agentic systems)|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4270923748)||
-|mygwork - lgbtq+ business community|applied ai - summer intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4335721679)||
-|symson|data science & ai intern|rotterdam, south holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4314612007)||
+|medis medical imaging|generative ai intern|leiden, south holland, netherlands|[🔗](https://www.linkedin.com/jobs/view/4317057645)||
+|moody's corporation|applied ai - summer intern|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4321994047)||
 |targetjobs uk|machine learning science intern - june 2026 - london - masters|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4319229381)||
 |targetjobs uk|machine learning science intern - june 2026 - london - phd|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4319286042)||
 |thales|internship (6 months full-time) improving webui user experience thanks to ai voice-llm|prague, prague, worldwide|[🔗](https://www.linkedin.com/jobs/view/4333596896)||
 |tourism marketing agency|intern, associate ai engineer|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4319133657)||
-|vanderlande|internship: empowering service excellence through ai innovation & sustainability at amazon dedicated service desk|veghel, north brabant, netherlands|[🔗](https://www.linkedin.com/jobs/view/4315937323)||
+|vanderlande|internship: empowering service excellence through ai innovation & sustainability at amazon dedicated service desk|veghel, north brabant, netherlands|[🔗](https://www.linkedin.com/jobs/view/4340630266)||
+|waymo|2026 summer intern, phd, machine learning engineer, simulation|london, england, united kingdom|[🔗](https://www.linkedin.com/jobs/view/4301605050)||
 |xiaomi technology|ecommerce operation intern/stagiaire en opérations e-commerce|paris, île-de-france, france|[🔗](https://www.linkedin.com/jobs/view/4320932509)||
 <!-- END ML_INTERNSHIPS -->
 
